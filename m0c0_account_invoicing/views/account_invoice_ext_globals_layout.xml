@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="globals_layout" name="Generales del Proveedor y Cliente en Facturas" inherit_id="web.address_layout">
+        <xpath expr="//div[@name='address']" position="replace">
+            <t t-esc="address" />
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="globals_and_signblocks" name="Generales y Bloque para Firmas de Facturas" inherit_id="account.report_invoice_document">
+        <xpath expr="//address" position="replace">
+            <div class="col-6 mb-4">
+                <p class="m-0"><strong>PRESTADOR</strong></p>
+                <p class="mt-1 mb-1" style="font-size: 1.35rem;" t-field="res_company.name"/>
+                <p class="m-0"><strong>Direcci&amp;oacute;n:</strong>&amp;nbsp;<span t-field="res_company.street"/><t t-if="res_company.street2">&amp;nbsp;<span t-field="res_company.street2"/></t><span>,&amp;nbsp;</span><span t-field="res_company.state_id.name"/><span>,&amp;nbsp;</span><span t-field="res_company.country_id.name"/></p>
+                <p class="m-0"><strong>C&amp;oacute;digo NIT:</strong>&amp;nbsp;<span t-field="res_company.vat"/></p>
+                <p class="m-0">
+                    <span><strong>Cuenta Bancaria:</strong></span>
+                    <span t-field="o.partner_bank_id.acc_holder_name" />
+                    <span t-field="o.partner_bank_id.acc_number" />
+                    <span>&amp;nbsp;(</span><span t-field="o.partner_bank_id.currency_id" /><span>)</span>
+                    <span>,&amp;nbsp;</span><span t-field="o.partner_bank_id.bank_id.name" /><span></span>
+                </p>
+            </div>
+            <div class="col-6 mb-4">
+                <p class="m-0"><strong>CLIENTE</strong></p>
+                <p class="mt-1 mb-1" style="font-size: 1.35rem;" t-field="o.partner_id.name"/>
+                <p class="m-0"><strong>Dirección:</strong>&amp;nbsp;<span t-field="o.partner_id.street"/><t t-if="o.partner_id.street2">&amp;nbsp;<span t-field="o.partner_id.street2"/></t><span>,&amp;nbsp;</span><span t-field="o.partner_id.state_id.name"/><span>,&amp;nbsp;</span><span t-field="o.partner_id.country_id.name"/></p>
+                <p class="m-0"><strong>C&amp;oacute;digo NIT:</strong>&amp;nbsp;<span t-field="o.partner_id.vat"/></p>
+                <p class="m-0">
+                    <span><strong>Cuenta Bancaria:</strong></span>
+                    <span t-field="o.partner_id.bank_ids[0].acc_holder_name" />
+                    <span t-field="o.partner_id.bank_ids[0].acc_number" />
+                    <span>&amp;nbsp;(</span><span t-field="o.partner_id.bank_ids[0].currency_id" /><span>)</span>
+                    <span>,&amp;nbsp;</span><span t-field="o.partner_id.bank_ids[0].bank_id.name" /><span></span>
+                </p>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('page')]" position="after">
+            <hr />
+            <div class="row">
+                <style type="text/css" rel="stylesheet">
+                    p.input-space {font-size: 1.35rem;margin-top: 0.5rem;margin-bottom: 0.5rem;}
+                    p.signature-space {font-size: 4rem;margin-top: 0.5rem;}
+                </style>
+                <div class="col-4">
+                    <p class="mb-1"><strong>Elaborado por</strong></p>
+                    <p class="input-space" t-field="o.invoice_user_id.name"/>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                    <i>Nombre</i>
+                    </p>
+                    <p class="input-space" t-field="o.invoice_user_id.function"/>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                    <i>Cargo</i>
+                    </p>
+                    <p class="input-space" t-field="o.invoice_date"/>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                    <i>Fecha</i>
+                    </p>
+                    <p class="signature-space">&amp;nbsp;</p>
+                    <p class="mb-0 small text-muted" style="border-top: dashed 1px black;">
+                    <i>Firma</i>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <p class="mb-1"><strong>Recibido por</strong></p>
+                    <p class="input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                    <i>Nombre</i>
+                    </p>
+                    <p class="input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                    <i>Cargo</i>
+                    </p>
+                    <p class="input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                    <i>Fecha</i>
+                    </p>
+                    <p class="signature-space">&amp;nbsp;</p>
+                    <p class="mb-0 small text-muted" style="border-top: dashed 1px black;">
+                    <i>Firma</i>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <p class="mb-1"><strong>Contabilizado por</strong></p>
+                    <p class="input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                    <i>Nombre</i>
+                    </p>
+                    <p class="input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                    <i>Cargo</i>
+                    </p>
+                    <p class="input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                    <i>Fecha</i>
+                    </p>
+                    <p class="signature-space">&amp;nbsp;</p>
+                    <p class="mb-0 small text-muted" style="border-top: dashed 1px black;">
+                    <i>Firma</i>
+                    </p>
+                </div>
+            </div>  
+        </xpath>
+    </template>
+</odoo>
