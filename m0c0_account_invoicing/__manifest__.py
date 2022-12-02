@@ -9,13 +9,13 @@
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Localization',
-    'version': '15.0.0.11',
+    'version': '15.0.0.12',
     # any module necessary for this one to work correctly
     'depends': ['base','account'],
     # always loaded
     'data': [
-        'views/account_invoice_ext_globals_layout.xml',
-        'views/account_invoice_ext_globals_and_signblocks.xml'
+        'views/account_invoice_globals.xml',
+        'views/account_invoice_signblocks.xml'
     ],
     'license': 'LGPL-3',
 }
