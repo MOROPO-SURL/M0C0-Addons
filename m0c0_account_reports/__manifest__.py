@@ -11,7 +11,7 @@
     'category': 'Localization',
     'version': '15.0.0.18',
     # any module necessary for this one to work correctly
-    'depends': ['account_financial_report'],
+    'depends': ['base', 'account_financial_report'],
     # always loaded
     'data': [
         #'views/bank_reconcile_dashboard_view.xml',
