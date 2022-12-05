@@ -4,7 +4,7 @@ from odoo import models, fields, api
 class M0C0AccountBankReconcileReportWizard(models.TransientModel):
     _name = 'm0c0.account.bank.reconcile.report.wizard'
     _description = 'M0C0 Account Bank Reconcile Report Wizard'
-    _inherit = "account.common.report"
+    _inherit = 'account.common.report'
 
     journal_id = fields.Many2one('account.journal', string='Journal', required=True, domain=[('type', '=', 'bank')])
     reconcile_date = fields.Date(string="Reconcile Date", required=True, default=fields.Date.today)
