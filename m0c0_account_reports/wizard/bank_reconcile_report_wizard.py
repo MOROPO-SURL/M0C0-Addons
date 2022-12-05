@@ -3,15 +3,17 @@ from odoo import models, fields, api
 from datetime import datetime
 
 
-class BankReconcileWizardReport(models.TransientModel):
+class M0C0BankReconcileReportWizard(models.TransientModel):
     _name = 'm0c0.account.bank.reconcile.report'
     _inherit = "account.common.report"
 
     journal_id = fields.Many2one('account.journal', string='Journal', required=True, domain=[('type', '=', 'bank')])
     reconcile_date = fields.Date(string="Reconcile Date", required=True, default=fields.Date.today)
-    sort_selection = fields.Selection([('date', 'Date'),
-                                       ('move_name', 'Journal Entry Number'), ], 'Entries Sorted by',
-                                      required=True, default='move_name')
+    sort_selection = fields.Selection(
+        [('date', 'Date'), ('move_name', 'Journal Entry Number'), ], 
+        'Entries Sorted by',
+        required=True, 
+        default='move_name')
 
     @api.multi
     def check_report(self):
