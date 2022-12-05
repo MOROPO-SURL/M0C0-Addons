@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 class BankReconcileWizardReport(models.TransientModel):
-    _name = 'account.bank.reconcile.report'
+    _name = 'm0c0.account.bank.reconcile.report'
     _inherit = "account.common.report"
 
     journal_id = fields.Many2one('account.journal', string='Journal', required=True, domain=[('type', '=', 'bank')])
