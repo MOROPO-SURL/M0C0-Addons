@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api
-from datetime import datetime
 
-
-class M0C0BankReconcileReportWizard(models.TransientModel):
-    _name = 'm0c0.account.bank.reconcile.report'
+class M0C0AccountBankReconcileReportWizard(models.TransientModel):
+    _name = 'm0c0.account.bank.reconcile.report.wizard'
+    _description = 'M0C0 Account Bank Reconcile Report Wizard'
     _inherit = "account.common.report"
 
     journal_id = fields.Many2one('account.journal', string='Journal', required=True, domain=[('type', '=', 'bank')])
