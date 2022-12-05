@@ -9,14 +9,14 @@
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Localization',
-    'version': '15.0.0.16',
+    'version': '15.0.0.17',
     # any module necessary for this one to work correctly
     'depends': ['account_financial_report'],
     # always loaded
     'data': [
         #'views/bank_reconcile_dashboard_view.xml',
         'views/bank_reconcile_report_template.xml',
-        'views/bank_reconcile_report_wizard_view.xml'
+        'reports/bank_reconcile_report_view.xml'
     ],
     'license': 'LGPL-3',
 }

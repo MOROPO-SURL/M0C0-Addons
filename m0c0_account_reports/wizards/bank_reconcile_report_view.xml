@@ -2,7 +2,7 @@
 <odoo>
     <record model="ir.ui.view" id="m0c0_account_reports_bank_reconcile_report_wizard">
         <field name="name">Bank reconcile report wizard</field>
-        <field name="model">m0c0_account_reports.account.bank.reconcile.report</field>
+        <field name="model">account.bank.reconcile.report</field>
         <field name="type">form</field>
         <field name="inherit_id" ref="account.account_common_report_view" />
         <field name="arch" type="xml">
@@ -27,7 +27,7 @@
 
     <record id="m0c0_account_reports_action_bank_reconcile_report_wizard" model="ir.actions.act_window">
         <field name="name">Bank reconcile report wizard</field>
-        <field name="res_model">m0c0_account_reports.account.bank.reconcile.report</field>
+        <field name="res_model">account.bank.reconcile.report</field>
         <field name="view_type">form</field>
         <field name="view_id" ref="m0c0_account_reports_bank_reconcile_report_wizard"/>
         <field name="view_mode">form</field>
