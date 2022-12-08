@@ -3,7 +3,7 @@
             model="m0c0.account.bank.reconcile.report.wizard"
             string="Bank reconcile report"
             report_type="qweb-pdf"
-            name="Reporte de Consilación Bancaria"
+            name="reports.bank.reconcile.report"
             menu="True"/>
 
     <template id="m0c0_account_reports_bank_reconcile_report_view">
