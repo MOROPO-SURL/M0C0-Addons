@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo import models, fields, api
+from odoo import models, fields
 
 class M0C0AccountBankReconcileReportWizard(models.TransientModel):
     _name = 'm0c0.account.bank.reconcile.report.wizard'
@@ -14,7 +14,6 @@ class M0C0AccountBankReconcileReportWizard(models.TransientModel):
         required=True, 
         default='move_name')
 
-    @api.multi
     def check_report(self):
         self.ensure_one()
         """Call when button 'Get Report' clicked.
