@@ -1,19 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record id="m0c0_account_reports_bank_reconcile_report_wizard" model="ir.ui.view">
-        <field name="name">reports.bank.reconcile.report</field>
-        <field name="model">m0c0.account.bank.reconcile.report.wizard</field>
-        <field name="inherit_id" ref="account.account_common_report_view" />
-        <field name="type">form</field>
-    </record>
+    <data>
+        <record id="m0c0_account_reports_bank_reconcile_report_wizard" model="ir.ui.view">
+            <field name="name">reports.bank.reconcile.report</field>
+            <field name="model">m0c0.account.bank.reconcile.report.wizard</field>
+            <field name="inherit_id" ref="account.account_common_report_view" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='target_move']" position="replace"/>
+                <xpath expr="//field[@name='journal_ids']" position="replace"/>
+                <xpath expr="//field[@name='date_from']" position="replace"/>
+                <xpath expr="//field[@name='date_to']" position="replace"/>
+                <xpath expr="//group" position="before">
+                    <group>
+                        <group>
+                            <field name="journal_id" options="{'no_create': True}"/>
+                            <field name="reconcile_date"/>
+                        </group>
+                        <group>
+                            <field name="sort_selection" widget="radio"/>
+                            <field name="target_move" string = "Target Moves" widget="radio"/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
 
-    <record id="m0c0_account_reports_action_bank_reconcile_report_wizard" model="ir.actions.act_window">
-        <field name="name">reports.bank.reconcile.report</field>
-        <field name="res_model">m0c0.account.bank.reconcile.report.wizard</field>
-        <field name="view_id" ref="m0c0_account_reports_bank_reconcile_report_wizard"/>
-        <field name="view_mode">form</field>
-        <field name="target">new</field>
-    </record>
+        <record id="m0c0_account_reports_action_bank_reconcile_report_wizard" model="ir.actions.act_window">
+            <field name="name">reports.bank.reconcile.report</field>
+            <field name="res_model">m0c0.account.bank.reconcile.report.wizard</field>
+            <field name="view_id" ref="m0c0_account_reports_bank_reconcile_report_wizard"/>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
 
-    <menuitem name="reports.bank.reconcile.report" action="m0c0_account_reports_action_bank_reconcile_report_wizard" id="m0c0_account_reports_menu_action_bank_reconcile_report" parent_id="account.menu_finance_legal_statement" sequence="1"/>
+        <menuitem name="reports.bank.reconcile.report" action="m0c0_account_reports_action_bank_reconcile_report_wizard" id="m0c0_account_reports_menu_action_bank_reconcile_report" parent_id="account.menu_finance_legal_statement" sequence="1"/>
+    </data>
 </odoo>
