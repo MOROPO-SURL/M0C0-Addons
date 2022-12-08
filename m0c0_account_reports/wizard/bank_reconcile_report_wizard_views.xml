@@ -29,7 +29,6 @@
         <field name="name">Reporte de Conciliación Bancaria</field>
         <field name="res_model">m0c0.account.bank.reconcile.report.wizard</field>
         <field name="view_id" ref="m0c0_account_reports_bank_reconcile_report_wizard"/>
-        <field name="view_type">form</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
