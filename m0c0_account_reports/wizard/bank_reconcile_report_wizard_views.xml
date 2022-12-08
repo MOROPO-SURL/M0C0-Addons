@@ -38,6 +38,6 @@
                   name="reports.bank.reconcile.report" 
                   sequence="20"
                   action="m0c0_account_reports_action_bank_reconcile_report_wizard" 
-                  parent="l10n_cu_reports.menu_account_partner_balance" />
+                  parent="accounting_pdf_reports.menu_finance_partner_reports" />
     </data>
 </odoo>
