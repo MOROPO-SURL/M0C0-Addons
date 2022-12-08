@@ -36,7 +36,7 @@
 
         <menuitem id="m0c0_account_reports_menu_action_bank_reconcile_report" 
                   name="reports.bank.reconcile.report" 
-                  sequence="20"
+                  sequence="30"
                   action="m0c0_account_reports_action_bank_reconcile_report_wizard" 
                   parent="accounting_pdf_reports.menu_finance_partner_reports" />
     </data>
