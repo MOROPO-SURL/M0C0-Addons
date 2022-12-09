@@ -5,12 +5,10 @@ from datetime import datetime, timedelta
 from odoo import models, fields, api
 from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT as DATETIME_FORMAT
 
-
 class BankReconcileReport(models.AbstractModel):
     """Abstract Model for report template."""
     _name = 'report.m0c0_account_reports.bank_reconcile_report_view'
 
-    @api.model
     def _compute_currency(self, journal_id, reconcile_date, amount):
         currency_id = ''
         if not journal_id.currency_id:
@@ -22,8 +20,7 @@ class BankReconcileReport(models.AbstractModel):
         amount_currency = currency_id.compute(amount, currency_id)
         return amount_currency
 
-    @api.model
-    def get_account_move_line_ids(self, move_state, journal_id, reconcile_date, sort_selection):
+    def _get_account_move_line_ids(self, move_state, journal_id, reconcile_date, sort_selection):
         account_move_line = {}
         params = [tuple(move_state), journal_id.id, reconcile_date]
         query = """
@@ -87,8 +84,7 @@ class BankReconcileReport(models.AbstractModel):
             })
         return account_move_line
 
-    @api.model
-    def get_account_move_line_fictions_ids(self, move_state, journal_id, reconcile_date,
+    def _get_account_move_line_fictions_ids(self, move_state, journal_id, reconcile_date,
                                            sort_selection):
         account_move_line_fictions = {}
         params = [journal_id.id, reconcile_date, reconcile_date]
@@ -136,15 +132,14 @@ class BankReconcileReport(models.AbstractModel):
             })
             return account_move_line_fictions
 
-    @api.model
-    def get_subtotal(self, data):
+    def _get_subtotal(self, data):
         subtotal = 0
         for m in data:
             subtotal += m['amount']
         return subtotal
 
     @api.model
-    def get_report_values(self, docids, data=None):
+    def _get_report_values(self, docids, data=None):
         journal_id = self.env['account.journal'].browse(data['form']['journal_id'])
         reconcile_date = data['form']['reconcile_date']
         sort_selection = data['form']['sort_selection']
@@ -167,8 +162,8 @@ class BankReconcileReport(models.AbstractModel):
 
         # total_balance = account_balance + debit_subtotal - credit_subtotal
 
-        accounts_move_line = self.get_account_move_line_ids(move_state, journal_id, reconcile_date, sort_selection)
-        accounts_move_line_fictions = self.get_account_move_line_fictions_ids(move_state, journal_id, reconcile_date, sort_selection)
+        accounts_move_line = self._get_account_move_line_ids(move_state, journal_id, reconcile_date, sort_selection)
+        accounts_move_line_fictions = self._get_account_move_line_fictions_ids(move_state, journal_id, reconcile_date, sort_selection)
         return {
             'doc_ids': data['ids'],
             'doc_model': data['model'],
@@ -178,6 +173,6 @@ class BankReconcileReport(models.AbstractModel):
             'total_balance': 0,
             'accounts_move_line': accounts_move_line,
             'accounts_move_line_fictions': accounts_move_line_fictions,
-            'get_subtotal': self.get_subtotal,
+            'get_subtotal': self._get_subtotal,
         }
 
