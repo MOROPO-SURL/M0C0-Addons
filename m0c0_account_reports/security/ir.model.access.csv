@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+m0c0_account_reports.access_reports,m0c0_access_reports,m0c0.account.bank.reconcile.report.wizard,base.group_account_user,1,1,1,1
