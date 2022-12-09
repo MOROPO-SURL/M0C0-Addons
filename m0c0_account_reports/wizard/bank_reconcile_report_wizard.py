@@ -31,7 +31,7 @@ class M0C0AccountBankReconcileReportWizard(models.TransientModel):
 
         # use `module_name.report_id` as reference.
         # `report_action()` will call `get_report_values()` and pass `data` automatically.
-        return self.env.ref('m0c0_account_reports.m0c0_account_reports_bank_reconcile_report_view').report_action(self, data=data)
+        return self.env.ref('m0c0_account_reports.m0c0_account_reports_bank_reconcile_report').report_action(self, data=data)
 
 
 
