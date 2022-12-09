@@ -151,7 +151,7 @@ class BankReconcileReport(models.AbstractModel):
         line_amount = 0
         line_type = ''
 
-        balance = self.env['report.account.report_trialbalance'].with_context({'date_to': reconcile_date})._get_accounts(journal_id.default_credit_account_id, 'all')
+        balance = self.env['accounting_pdf_reports.action_report_trial_balance'].with_context({'date_to': reconcile_date})._get_accounts(journal_id.default_credit_account_id, 'all')
 
         for acc in balance:
             account_balance = abs(self._compute_currency(journal_id, reconcile_date, acc['balance']))
