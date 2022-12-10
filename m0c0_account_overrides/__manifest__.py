@@ -13,6 +13,8 @@
     # any module necessary for this one to work correctly
     'depends': ['base','account','om_fiscal_year'],
     # always loaded
-    'data': [],
+    'data': [
+        'views/fiscal_year_change_lock_date_backup_remainder.xml'
+    ],
     'license': 'LGPL-3',
 }
