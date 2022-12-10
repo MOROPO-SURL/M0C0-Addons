@@ -5,7 +5,7 @@
             <div class="alert alert-warning">
                 <h4 class="alert-heading">Importante!</h4>
                 <p>Recuerde realizar una salva del sistema antes de realizar esta operación, como respaldo ante elementos que por aguna situación no planificada no se hayan incorporado y así se requiera.</p>
-                <hr>
+                <hr />
                 <p class="mb-0">Si aún no ha realizado la salva puede realizarla accionando el botón a continuación:</p>
                 <button class="btn btn-primary">Realizar Salva</button>
             </div>
