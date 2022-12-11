@@ -6,7 +6,7 @@
             <div class="row">
                 <style type="text/css" rel="stylesheet">
                     p.input-space {font-size: 1.15rem;margin-top: 0.4rem;margin-bottom: 0.4rem;}
-                    p.signature-space {font-size: 3rem;margin-top: 0.4rem;}
+                    p.signature-space {font-size: 3rem;}
                 </style>
                 <div class="col-4">
                     <p class="mb-1"><strong>Elaborado por</strong></p>
@@ -98,7 +98,7 @@
             </div>
             <div class="row">
                 <div class="col-4">
-                    <p style="font-size: 2rem;margin-top: 0.4rem;">&amp;nbsp;</p>
+                    <p style="font-size: 2rem;">&amp;nbsp;</p>
                     <p class="mb-0 small text-muted" style="border-top: dashed 1px black;">
                     <i>Firma</i>
                     </p>
