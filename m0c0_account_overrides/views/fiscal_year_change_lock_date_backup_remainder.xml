@@ -4,7 +4,7 @@
         <field name="model">change.lock.date</field>
         <field name="inherit_id" ref="om_fiscal_year.view_change_lock_date"/>
         <field name="arch" type="xml">
-            <xpath expr="//groups" position="before">
+            <xpath expr="//sheet" position="inside">
                 <div class="alert alert-warning">
                     <h4 class="alert-heading">Importante!</h4>
                     <p>Recuerde realizar una salva del sistema antes de realizar esta operación, como respaldo ante elementos que por aguna situación no planificada no se hayan incorporado y así se requiera.</p>
