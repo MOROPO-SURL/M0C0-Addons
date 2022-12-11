@@ -5,8 +5,8 @@
             <hr />
             <div class="row">
                 <style type="text/css" rel="stylesheet">
-                    p.input-space {font-size: 1.35rem;margin-top: 0.5rem;margin-bottom: 0.5rem;}
-                    p.signature-space {font-size: 4rem;margin-top: 0.5rem;}
+                    p.input-space {font-size: 1.15rem;margin-top: 0.4rem;margin-bottom: 0.4rem;}
+                    p.signature-space {font-size: 3rem;margin-top: 0.4rem;}
                 </style>
                 <div class="col-4">
                     <p class="mb-1"><strong>Elaborado por</strong></p>
@@ -65,7 +65,46 @@
                     <i>Firma</i>
                     </p>
                 </div>
-            </div>  
+            </div>
+            <div class="col-4">
+                <p class="mb-1"><strong>Transportado por</strong></p>
+                <p class="input-space">&amp;nbsp;</p>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <p class="input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                    <i>Nombre</i>
+                    </p>
+                </div>
+                <div class="col-3">
+                    <p class="input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                    <i># de Identidad</i>
+                    </p>
+                    <p class="input-space">&amp;nbsp;</p>
+                </div>
+                <div class="col-2">
+                    <p class="input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                    <i>Matrícula</i>
+                    </p>
+                    <p class="input-space">&amp;nbsp;</p>
+                </div>
+                <div class="col-3">
+                    <p class="input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                    <i># Carta de Porte/Casilla de Ferrocarril</i>
+                    </p>
+                    <p class="input-space">&amp;nbsp;</p>
+                </div>
+                <div>
+                    <p class="signature-space">&amp;nbsp;</p>
+                    <p class="mb-0 small text-muted" style="border-top: dashed 1px black;">
+                    <i>Firma</i>
+                    </p>
+                </div>
+            </div>
         </xpath>
     </template>
 </odoo>
