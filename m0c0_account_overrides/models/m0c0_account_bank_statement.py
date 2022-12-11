@@ -1,7 +1,7 @@
 from odoo import models, _
 from odoo.exceptions import UserError
 
-class AccountBankStatement(models.Model):
+class M0C0AccountBankStatement(models.Model):
     _inherit = "account.bank.statement"
 
     def button_reopen(self):
