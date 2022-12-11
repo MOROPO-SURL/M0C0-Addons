@@ -212,7 +212,7 @@ class BankReconcileReport(models.AbstractModel):
         # total_balance = account_balance + debit_subtotal - credit_subtotal
 
         accounts_move_line = self._get_account_move_line_ids(move_state, journal_id, reconcile_date, sort_selection)
-        accounts_move_line_fictions = self._get_account_move_line_fictions_ids(move_state, journal_id, reconcile_date, sort_selection)
+        #accounts_move_line_fictions = self._get_account_move_line_fictions_ids(move_state, journal_id, reconcile_date, sort_selection)
         return {
             'doc_ids': data['ids'],
             'doc_model': data['model'],
@@ -221,7 +221,7 @@ class BankReconcileReport(models.AbstractModel):
             'account_balance': account_balance,
             'total_balance': 0,
             'accounts_move_line': accounts_move_line,
-            'accounts_move_line_fictions': accounts_move_line_fictions,
+            #'accounts_move_line_fictions': accounts_move_line_fictions,
             'get_subtotal': self._get_subtotal,
         }
 
