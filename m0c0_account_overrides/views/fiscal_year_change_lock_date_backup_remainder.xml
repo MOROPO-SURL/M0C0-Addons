@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="backup_remainder_fiscal_lock_date_override_view" model="ir.ui.view">
-        <field name="model">m0c0.change.lock.date</field>
+        <field name="model">change.lock.date</field>
         <field name="inherit_id" ref="om_fiscal_year.view_change_lock_date"/>
         <field name="arch" type="xml">
             <xpath expr="//group" position="before">
@@ -10,7 +10,7 @@
                     <p>Recuerde realizar una salva del sistema antes de realizar esta operación, como respaldo ante elementos que por aguna situación no planificada no se hayan incorporado y así se requiera.</p>
                     <hr />
                     <p>Si aún no ha realizado la salva puede realizarla accionando el botón a continuación:</p>
-                    <button name="button_perform_backup" type="object" string="Realizar Salva" class="btn btn-success" />
+                    <button name="%(auto_backup.ir_cron_backup_scheduler_0_ir_actions_server)d" type="object" string="Realizar Salva" class="btn btn-success" />
                 </div>
             </xpath>
         </field>
