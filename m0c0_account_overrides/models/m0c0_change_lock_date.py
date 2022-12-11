@@ -5,4 +5,4 @@ class M0C0ChangeLockDate(models.TransientModel):
     _inherit = "change.lock.date"
 
     def button_perform_backup(self):
-        self.env.ref('auto_backup.action_server_backup').run()
+        self.env.ref('auto_backup.ir_cron_backup_scheduler_0_ir_actions_server').run()
