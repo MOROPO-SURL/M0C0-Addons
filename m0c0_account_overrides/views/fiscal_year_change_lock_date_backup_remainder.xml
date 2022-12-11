@@ -5,7 +5,7 @@
         <field name="inherit_id" ref="om_fiscal_year.view_change_lock_date"/>
         <field name="arch" type="xml">
             <xpath expr="//group" position="before">
-                <div class="alert alert-warning">
+                <div class="alert alert-warning p-4">
                     <h4 class="alert-heading">Importante!</h4>
                     <p>Recuerde realizar una salva del sistema antes de realizar esta operación, como respaldo ante elementos que por aguna situación no planificada no se hayan incorporado y así se requiera.</p>
                     <hr />
