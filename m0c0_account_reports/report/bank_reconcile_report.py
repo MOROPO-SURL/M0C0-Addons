@@ -200,7 +200,7 @@ class BankReconcileReport(models.AbstractModel):
         line_amount = 0
         line_type = ''
 
-        balance = self._get_accounts(journal_id.default_credit_account_id, 'all')
+        balance = self._get_accounts(journal_id.default_account_id, 'all')
 
         for acc in balance:
             account_balance = abs(self._compute_currency(journal_id, reconcile_date, acc['balance']))
