@@ -10,7 +10,7 @@
                     <p>Recuerde realizar una salva del sistema antes de realizar esta operación, como respaldo ante elementos que por aguna situación no planificada no se hayan incorporado y así se requiera.</p>
                     <hr />
                     <p>Si aún no ha realizado la salva puede realizarla accionando el botón a continuación:</p>
-                    <button name="%(auto_backup.ir_cron_backup_scheduler_0_ir_actions_server)d" type="object" string="Realizar Salva" class="btn btn-success" />
+                    <button name="%(auto_backup.ir_cron_backup_scheduler_0_ir_actions_server)d" type="action" string="Realizar Salva" class="btn btn-success" />
                 </div>
             </xpath>
         </field>
