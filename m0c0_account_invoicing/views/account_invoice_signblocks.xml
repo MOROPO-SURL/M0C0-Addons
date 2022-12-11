@@ -66,10 +66,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-4">
-                <p class="mb-1"><strong>Transportado por</strong></p>
-                <p class="input-space">&amp;nbsp;</p>
-            </div>
+            <p class="mb-1 mt-1"><strong>Transportado por</strong></p>
             <div class="row">
                 <div class="col-4">
                     <p class="input-space">&amp;nbsp;</p>
