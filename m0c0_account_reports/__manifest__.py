@@ -6,7 +6,7 @@
     'author': 'MOROPO S.U.R.L.',
     'website': 'https://www.moropo.cu',
     'category': 'Localization',
-    'version': '15.0.0.53',
+    'version': '15.0.0.54',
     # any module necessary for this one to work correctly
     'depends': ['base', 'account_financial_report', 'l10n_cu_reports'],
     # always loaded

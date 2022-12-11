@@ -221,7 +221,7 @@ class BankReconcileReport(models.AbstractModel):
             'account_balance': account_balance,
             'total_balance': 0,
             'accounts_move_line': accounts_move_line,
-            #'accounts_move_line_fictions': accounts_move_line_fictions,
+            'accounts_move_line_fictions': [],
             'get_subtotal': self._get_subtotal,
         }
 

@@ -2,7 +2,7 @@
     <data>
         <report id="m0c0_account_reports_bank_reconcile_report"
                 model="m0c0.account.bank.reconcile.report.wizard"
-                string="Bank reconcile report"
+                string="Bank Reconcile Report"
                 report_type="qweb-pdf"
                 name="m0c0_account_reports.bank_reconcile_report_view"
                 menu="True"/>
