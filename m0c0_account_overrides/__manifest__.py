@@ -9,7 +9,7 @@
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Localization',
-    'version': '15.0.0.28',
+    'version': '15.0.0.29',
     # any module necessary for this one to work correctly
     'depends': ['base','account','om_fiscal_year','auto_backup'],
     # always loaded
