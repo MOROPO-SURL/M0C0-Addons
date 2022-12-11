@@ -9,8 +9,8 @@
                     <h4 class="alert-heading">Importante!</h4>
                     <p>Recuerde realizar una salva del sistema antes de realizar esta operación, como respaldo ante elementos que por aguna situación no planificada no se hayan incorporado y así se requiera.</p>
                     <hr />
-                    <p class="mb-0">Si aún no ha realizado la salva puede realizarla accionando el botón a continuación:</p>
-                    <a href="#" class="btn btn-primary">Realizar Salva</a>
+                    <p>Si aún no ha realizado la salva puede realizarla accionando el botón a continuación:</p>
+                    <a href="#" class="btn btn-success">Realizar Salva</a>
                 </div>
             </xpath>
         </field>
