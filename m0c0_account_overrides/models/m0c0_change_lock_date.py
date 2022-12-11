@@ -1,6 +1,6 @@
 from odoo import models, api, _
 
-class M0C0ChangeLockDate(models.Model):
+class M0C0ChangeLockDate(models.TransientModel):
     _id = "m0c0.change.lock.date"
     _inherit = "change.lock.date"
 
