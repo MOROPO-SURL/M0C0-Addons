@@ -42,7 +42,7 @@ class BankReconcileReport(models.AbstractModel):
 
                   WHERE
                       aml.account_id = acc.id AND
-                      acc.id = aj.default_debit_account_id AND 
+                      acc.id = aj.default_account_id AND 
                       aml.move_id = am.id AND 
                       am.state in %s AND 
                       aml.journal_id = %s AND
