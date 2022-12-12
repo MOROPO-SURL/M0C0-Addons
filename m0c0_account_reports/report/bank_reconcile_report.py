@@ -215,7 +215,7 @@ class BankReconcileReport(models.AbstractModel):
         return {
             'doc_ids': data['ids'],
             'doc_model': data['model'],
-            'company_id': journal_id.company_id.name,
+            'company_id': journal_id.company_id,
             'reconcile_date': reconcile_date,
             'account_balance': account_balance,
             'total_balance': 0,
