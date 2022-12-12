@@ -6,9 +6,9 @@
     'author': 'MOROPO S.U.R.L.',
     'website': 'https://www.moropo.cu',
     'category': 'Localization',
-    'version': '15.0.0.56',
+    'version': '15.0.0.57',
     # any module necessary for this one to work correctly
-    'depends': ['base', 'account_financial_report', 'l10n_cu_reports'],
+    'depends': ['base', 'l10n_cu_reports'],
     # always loaded
     'data': [
         #'views/bank_reconcile_dashboard_view.xml',
