@@ -6,7 +6,6 @@ from odoo import models, fields, api
 from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT as DATETIME_FORMAT
 
 class BankReconcileReport(models.AbstractModel):
-    """Abstract Model for report template."""
     _name = 'report.m0c0_account_reports.bank_reconcile_report_view'
 
     def _compute_currency(self, journal_id, reconcile_date, amount):
@@ -216,7 +215,7 @@ class BankReconcileReport(models.AbstractModel):
         return {
             'doc_ids': data['ids'],
             'doc_model': data['model'],
-            'company': journal_id.company_id.name,
+            'company_id': journal_id.company_id.name,
             'reconcile_date': reconcile_date,
             'account_balance': account_balance,
             'total_balance': 0,

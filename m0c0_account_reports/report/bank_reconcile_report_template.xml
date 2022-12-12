@@ -14,7 +14,7 @@
                         <div class="oe_structure"/>
                         <div class="row">
                             <h4 class="text-center">BANK RECONCILIATION</h4>
-                            <h5 class="text-center"><t t-esc="company"/></h5>
+                            <h5 class="text-center"><t t-esc="company_id"/></h5>
                             <!--<h5 class="text-center"><t t-esc="reconcile_date"/></h5>-->
                         </div>
                         <div class="row">
