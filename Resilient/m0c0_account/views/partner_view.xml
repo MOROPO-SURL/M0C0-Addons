@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_partner_property_advance_form" model="ir.ui.view">
+            <field name="name">res.partner.property.advance.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="priority">3</field>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
+            <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]"/>
+            <field name="arch" type="xml">
+                <group name="accounting_entries" position="inside">
+                    <field name="property_account_advance_receivable_id"/>
+                    <field name="property_account_advance_payable_id"/>
+                </group>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="ledger_report_view">
+            <div class="header">
+                <div class="row"><h4 class="text-center"><strong>Report Ledge</strong></h4></div>
+                <div class="row">
+                    <div class="col-xs-8">
+                        <div><strong>Company: </strong><spam><t t-esc="res_company.name"/></spam></div>
+                        <div><strong>Target Moves: </strong><t t-esc="target_move"/></div>
+                        <div><strong>Date: </strong><span t-esc="date_to"/></div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div><strong>Issue Date: </strong><span t-esc="time.strftime('%Y-%m-%d')"/></div>
+                        <div><strong>Page: </strong><span class="page"/> de <span class="topage"/></div>
+                    </div>
+                </div>
+            </div>
+            <div class="article">
+                <table class="table table-condensed table-bordered" style="width: 100%">
+                    <thead>
+                        <tr>
+                            <th rowspan="2" class="text-center" style="width: 16%">Account</th>
+                            <th rowspan="2" class="text-center" style="width: 12%">Initial</th>
+                            <th class="text-center" style="width: 12%">January</th>
+                            <th class="text-center" style="width: 12%">February</th>
+                            <th class="text-center" style="width: 12%">March</th>
+                            <th class="text-center" style="width: 12%">April</th>
+                            <th class="text-center" style="width: 12%">May</th>
+                            <th class="text-center" style="width: 12%">June</th>
+                            <th rowspan="2" class="text-center" style="width: 12%">Until date</th>
+                        </tr>
+                        <tr>
+                            <th class="text-center" style="width: 12%">Jule</th>
+                            <th class="text-center" style="width: 12%">August</th>
+                            <th class="text-center" style="width: 12%">September</th>
+                            <th class="text-center" style="width: 12%">October</th>
+                            <th class="text-center" style="width: 12%">November</th>
+                            <th class="text-center" style="width: 12%">December</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="row_number" t-value="row_number"/>
+                        <t t-foreach="docs" t-as="doc">
+                            <tr>
+                                <td t-att-rowspan="row_number">
+                                    <span>
+                                        <t t-esc="doc['code']"/>
+                                        <t t-esc="doc['account_id']"/>
+                                    </span>
+                                </td>
+                                <td t-att-rowspan="row_number" class="text-center">
+                                    <span t-esc="doc['initial']"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-esc="doc['january']"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-esc="doc['february']"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-esc="doc['march']"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-esc="doc['april']"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-esc="doc['may']"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-esc="doc['june']"/>
+                                </td>
+                                <td t-att-rowspan="row_number" class="text-center">
+                                    <span t-esc="doc['to_date']"/>
+                                </td>
+                            </tr>
+                            <t t-if="row_number == 2">
+                                <tr>
+                                    <td class="text-center">
+                                        <span t-esc="doc['july']"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="doc['august']"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="doc['september']"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="doc['october']"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="doc['november']"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-esc="doc['december']"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="footer">
+                <div class="row"><span style="color: white;" t-esc="'.'"/></div>
+                <div class="row">______________________________________</div>
+                <div class="row"><strong>Accounting Boss</strong></div>
+            </div>
+        </template>
+
+        <report
+                id="report_ledger_account"
+                model="account.ledger.report"
+                string="Ledger"
+                report_type="qweb-pdf"
+                name="m0c0_account.ledger_report_view"
+        />
+    </data>
+</odoo>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_operational_voucher">
+            <t t-call="web.external_layout">
+                <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})" />
+                    <div class="page">
+                        <div class="row"><h4 class="text-center"><strong>SC-5-05 OPERATIONS VOUCHER</strong></h4></div>
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <div><strong>Company: </strong><spam><t t-esc="o.company_id.name"/></spam></div>
+                                <div><strong>REUP Code: </strong><spam><t t-esc="o.company_id.name"/></spam></div>
+                                <div><strong>Journal: </strong><spam><t t-esc="o.journal_id.name"/></spam></div>
+                                <div><strong>Reference: </strong><spam><t t-esc="o.ref"/></spam></div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div><strong>Doc No.: </strong><spam><t t-esc="o.name"/></spam> [<spam><t t-esc="o.state"/></spam>]</div>
+                                <div><strong>Date: </strong><spam><t t-esc="o.date"/></spam></div>
+                                <div><strong>Page: </strong><span class="page"/> de <span class="topage"/></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <t t-set="total_debit" t-value="sum([l.debit for l in o.line_ids])"/>
+                            <t t-set="total_credit" t-value="sum([l.credit for l in o.line_ids])"/>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>Account</th>
+                                        <th>Analytic Account</th>
+                                        <th class="text-center">Debit</th>
+                                        <th class="text-center">Credit</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.line_ids" t-as="line">
+                                        <tr>
+                                            <td><t t-esc="line.account_id.code"/>  <t t-esc="line.account_id.name"/></td>
+                                            <td><t t-esc="line.analytic_account_id.code"/> <t t-esc="line.analytic_account_id.name"/></td>
+                                            <td><t t-esc="line.debit" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></td>
+                                            <td><t t-esc="line.credit" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></td>
+                                            <td/>
+                                            <td/>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <td><strong>Totals:</strong></td>
+                                        <td/>
+                                        <td class="text-right"><strong><t t-esc="total_debit" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></strong></td>
+                                        <td class="text-right"><strong><t t-esc="total_credit" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row"><strong>Note: </strong></div>
+                        <div class="row"><t t-esc="o.narration"/></div>
+                    </div>
+                    <div class="bottom-page">
+                        <div class="footer">
+                            <div class="row"><span style="color: white;" t-esc="'.'"/></div>
+                            <div class="row">
+                                <div class="col-xs-4">________________________________</div>
+                                <div class="col-xs-4">________________________________</div>
+                                <div class="col-xs-4">________________________________</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4"><strong>Made by</strong></div>
+                                <div class="col-xs-4"><strong>Approved by</strong></div>
+                                <div class="col-xs-4"><strong>Registered by</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+
+        </template>
+
+        <template id="operational_voucher">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="m0c0_account.report_operational_voucher" t-lang="o.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+        <report
+            id="operational_voucher_report"
+            model="account.move"
+            string="Operational Voucher"
+            report_type="qweb-pdf"
+            name="m0c0_account.operational_voucher"
+            file="m0c0_account.operational_voucher_report_template"
+        />
+    </data>
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="m0c0_account_bank_reconcile_dashboard_view" model="ir.ui.view">
+            <field name="name">account.journal.dashboard.kanban.inherited</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.account_journal_dashboard_kanban_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//kanban/templates/t[3]/div/div[3]/div[3]" position="after">
+                    <div>
+                        <a type="object" name="open_action_with_context_dashboard" context="{'action_name': 'action_bank_reconcile_report_wizard', 'use_domain': True}">Bank reconcile</a>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- [0] Specify the diferents group account -->
+        <record id="m0c0_acc_group_0" model="account.group">
+            <field name="code_prefix">0</field>
+            <field name="name">CLASIFICADOR</field>
+        </record>
+        <record id="m0c0_acc_group_6" model="account.group">
+            <field name="code_prefix">135</field>
+            <field name="name">CUENTAS POR COBRAR A CORTO PLAZO</field>
+            <field name="parent_id" ref="m0c0_acc_group_0"/>
+        </record>
+        <record id="m0c0_acc_group_7" model="account.group">
+            <field name="code_prefix">146</field>
+            <field name="name">PAGOS ANTICIPADOS  A SUMINISTRADORES</field>
+            <field name="parent_id" ref="m0c0_acc_group_0"/>
+        </record>
+        <record id="m0c0_acc_group_36" model="account.group">
+            <field name="code_prefix">405</field>
+            <field name="name">CUENTAS POR PAGAR A CORTO PLAZO</field>
+            <field name="parent_id" ref="m0c0_acc_group_0"/>
+        </record>
+
+        <!-- [0] Specify the diferents user type account -->
+        <record id="m0c0_type_account_1" model="account.account.type">
+            <field name="name">10.1 ACTIVOS CIRCULANTES - LIQUIDEZ</field>
+            <field name="type">liquidity</field>
+            <field name="include_initial_balance" eval="True"/>
+        </record>
+        <record id="m0c0_type_account_2" model="account.account.type">
+            <field name="name">10.1 ACTIVOS CIRCULANTES - A COBRAR</field>
+            <field name="type">receivable</field>
+            <field name="include_initial_balance" eval="True"/>
+        </record>
+        <record id="m0c0_type_account_3" model="account.account.type">
+            <field name="name">10.1 ACTIVOS CIRCULANTES - REGULAR</field>
+            <field name="type">other</field>
+            <field name="include_initial_balance" eval="True"/>
+        </record>
+        <record id="m0c0_type_account_4" model="account.account.type">
+            <field name="name">10.2 ACTIVO A LARGO PLAZO - A COBRAR</field>
+            <field name="type">receivable</field>
+            <field name="include_initial_balance" eval="True"/>
+        </record>
+        <record id="m0c0_type_account_5" model="account.account.type">
+            <field name="name">10.2 ACTIVO A LARGO PLAZO - REGULAR</field>
+            <field name="type">other</field>
+            <field name="include_initial_balance" eval="True"/>
+        </record>
+        <record id="m0c0_type_account_6" model="account.account.type">
+            <field name="name">10.3 ACTIVOS FIJOS - REGULAR BI</field>
+            <field name="type">other</field>
+            <field name="include_initial_balance" eval="True"/>
+        </record>
+        <record id="m0c0_type_account_7" model="account.account.type">
+            <field name="name">10.3 ACTIVOS FIJOS - REGULAR SS</field>
+            <field name="type">other</field>
+            <field name="include_initial_balance" eval="False"/>
+        </record>
+        <record id="m0c0_type_account_8" model="account.account.type">
+            <field name="name">10.4 ACTIVOS DIFERIDOS - REGULAR BI</field>
+            <field name="type">other</field>
+            <field name="include_initial_balance" eval="True"/>
+        </record>
+        <record id="m0c0_type_account_9" model="account.account.type">
+            <field name="name">10.4 ACTIVOS DIFERIDOS - REGULAR SS</field>
+            <field name="type">other</field>
+            <field name="include_initial_balance" eval="False"/>
+        </record>
+        <record id="m0c0_type_account_10" model="account.account.type">
+            <field name="name">10.5 OTROS ACTIVOS - A COBRAR</field>
+            <field name="type">receivable</field>
+            <field name="include_initial_balance" eval="True"/>
+        </record>
+        <record id="m0c0_type_account_11" model="account.account.type">
+            <field name="name">10.5 OTROS ACTIVOS - REGULAR</field>
+            <field name="type">other</field>
+            <field name="include_initial_balance" eval="True"/>
+        </record>
+        <record id="m0c0_type_account_12" model="account.account.type">
+            <field name="name">10.6 CUENTAS REGULADORAS DE ACTIVOS - REGULAR</field>
+            <field name="type">other</field>
+            <field name="include_initial_balance" eval="True"/>
+        </record>
+        <record id="m0c0_type_account_13" model="account.account.type">
+            <field name="name">20.1 PASIVOS CIRCULANTES - A PAGAR</field>
+            <field name="type">payable</field>
+            <field name="include_initial_balance" eval="True"/>
+        </record>
+        <record id="m0c0_type_account_14" model="account.account.type">
+            <field name="name">20.1 PASIVOS CIRCULANTES - REGULAR</field>
+            <field name="type">other</field>
+            <field name="include_initial_balance" eval="True"/>
+        </record>
+        <record id="m0c0_type_account_15" model="account.account.type">
+            <field name="name">20.2 PASIVOS A LARGO PLAZO - A PAGAR</field>
+            <field name="type">payable</field>
+            <field name="include_initial_balance" eval="True"/>
+        </record>
+        <record id="m0c0_type_account_16" model="account.account.type">
+            <field name="name">20.2 PASIVOS A LARGO PLAZO - REGULAR</field>
+            <field name="type">other</field>
+            <field name="include_initial_balance" eval="True"/>
+        </record>
+        <record id="m0c0_type_account_17" model="account.account.type">
+            <field name="name">20.3 PASIVOS DIFERIDOS - REGULAR</field>
+            <field name="type">other</field>
+            <field name="include_initial_balance" eval="True"/>
+        </record>
+        <record id="m0c0_type_account_18" model="account.account.type">
+            <field name="name">20.4 OTROS PASIVOS - A PAGAR</field>
+            <field name="type">payable</field>
+            <field name="include_initial_balance" eval="True"/>
+        </record>
+        <record id="m0c0_type_account_19" model="account.account.type">
+            <field name="name">20.4 OTROS PASIVOS - REGULAR</field>
+            <field name="type">other</field>
+            <field name="include_initial_balance" eval="True"/>
+        </record>
+        <record id="m0c0_type_account_20" model="account.account.type">
+            <field name="name">30. PATRIMONIO NETO - REGULAR</field>
+            <field name="type">other</field>
+            <field name="include_initial_balance" eval="True"/>
+        </record>
+        <record id="m0c0_type_account_21" model="account.account.type">
+            <field name="name">30. CAPITAL CONTABLE - REGULAR</field>
+            <field name="type">other</field>
+            <field name="include_initial_balance" eval="True"/>
+        </record>
+        <record id="m0c0_type_account_22" model="account.account.type">
+            <field name="name">40. GASTOS DE PRODUCCIÓN - REGULAR BI</field>
+            <field name="type">other</field>
+            <field name="include_initial_balance" eval="True"/>
+        </record>
+        <record id="m0c0_type_account_23" model="account.account.type">
+            <field name="name">40. GASTOS DE PRODUCCIÓN - REGULAR SS</field>
+            <field name="type">other</field>
+            <field name="include_initial_balance" eval="False"/>
+        </record>
+        <record id="m0c0_type_account_24" model="account.account.type">
+            <field name="name">50.1 CUENTAS NOMINALES DEUDORAS - REGULAR</field>
+            <field name="type">other</field>
+            <field name="include_initial_balance" eval="False"/>
+        </record>
+        <record id="m0c0_type_account_25" model="account.account.type">
+            <field name="name">50.2 CUENTAS NOMINALES ACREEDORAS - REGULAR</field>
+            <field name="type">other</field>
+            <field name="include_initial_balance" eval="False"/>
+        </record>
+        <record id="m0c0_type_account_26" model="account.account.type">
+            <field name="name">50.3 CUENTAS NOMINALES DEUDORAS - REGULAR</field>
+            <field name="type">other</field>
+            <field name="include_initial_balance" eval="False"/>
+        </record>
+        <record id="m0c0_type_account_27" model="account.account.type">
+            <field name="name">50.4 CUENTAS NOMINALES ACREEDORAS - REGULAR</field>
+            <field name="type">other</field>
+            <field name="include_initial_balance" eval="False"/>
+        </record>
+        <record id="m0c0_type_account_28" model="account.account.type">
+            <field name="name">60. CUENTA DE CIERRE - REGULAR</field>
+            <field name="type">other</field>
+            <field name="include_initial_balance" eval="False"/>
+        </record>
+
+        <!-- [1] Specify the diferents tamplate -->
+        <record id="m0c0_acct_699" model="account.account.template">
+            <field name="name">Transitoria del Sistema Automatizado</field>
+            <field name="code">699</field>
+            <field name="user_type_id" ref="m0c0_type_account_20"/>
+            <field name="reconcile" eval="True"/>
+        </record>
+
+        <record id="m0c0_acc_temp_grl" model="account.chart.template">
+            <field name="name">PLANTILLA GENERAL</field>
+            <field name="currency_id" ref="base.CUP"/>
+            <field name="bank_account_code_prefix">109</field>
+            <field name="cash_account_code_prefix">101</field>
+            <field name="code_digits">10</field>
+            <field name="visible" eval="False"/>
+            <field name="transfer_account_id" ref="m0c0_acct_699"/>
+            <field name="spoken_languages" eval="'es_ES;es_US;es_CU'"/>
+            <field name="complete_tax_set" eval="False"/>
+        </record>
+        <record id="m0c0_acct_699" model="account.account.template">
+            <field name="chart_template_id" ref="m0c0_acc_temp_grl"/>
+        </record>
+
+        <!-- [2] Specify the diferents accounts tamplate -->
+
+        <record id="m0c0_acct_135" model="account.account.template">
+            <field name="name">Cuentas por Cobrar a Corto Plazo - Fuera del Órgano u Organismo</field>
+            <field name="code">1350020</field>
+            <field name="user_type_id" ref="m0c0_type_account_2"/>
+            <field name="chart_template_id" ref="m0c0_acc_temp_grl"/>
+            <field name="reconcile" eval="True"/>
+            <field name="group_id" ref="m0c0_acc_group_6"/>
+        </record>
+        <record id="m0c0_acct_146" model="account.account.template">
+            <field name="name">Pagos Anticipados a Suministradores  - Fuera del Órgano u Organismo</field>
+            <field name="code">1460020</field>
+            <field name="user_type_id" ref="m0c0_type_account_2"/>
+            <field name="chart_template_id" ref="m0c0_acc_temp_grl"/>
+            <field name="reconcile" eval="True"/>
+            <field name="group_id" ref="m0c0_acc_group_7"/>
+        </record>
+        <record id="m0c0_acct_183" model="account.account.template">
+            <field name="name">Materias Primas y Materiales</field>
+            <field name="code">183</field>
+            <field name="user_type_id" ref="m0c0_type_account_3"/>
+            <field name="chart_template_id" ref="m0c0_acc_temp_grl"/>
+            <field name="reconcile" eval="False"/>
+            <field name="group_id" ref="m0c0_acc_group_0"/>
+        </record>
+        <record id="m0c0_acct_405" model="account.account.template">
+            <field name="name">Cuentas por Pagar a Corto Plazo - Fuera del Órgano u Organismo</field>
+            <field name="code">4050020</field>
+            <field name="user_type_id" ref="m0c0_type_account_13"/>
+            <field name="chart_template_id" ref="m0c0_acc_temp_grl"/>
+            <field name="reconcile" eval="True"/>
+            <field name="group_id" ref="m0c0_acc_group_36"/>
+        </record>
+        <record id="m0c0_acct_430" model="account.account.template">
+            <field name="name">Cobros Anticipados</field>
+            <field name="code">430</field>
+            <field name="user_type_id" ref="m0c0_type_account_13"/>
+            <field name="chart_template_id" ref="m0c0_acc_temp_grl"/>
+            <field name="reconcile" eval="True"/>
+            <field name="group_id" ref="m0c0_acc_group_0"/>
+        </record>
+        <record id="m0c0_acct_822" model="account.account.template">
+            <field name="name">Gastos Generales y de Administración</field>
+            <field name="code">822</field>
+            <field name="user_type_id" ref="m0c0_type_account_24"/>
+            <field name="chart_template_id" ref="m0c0_acc_temp_grl"/>
+            <field name="reconcile" eval="False"/>
+            <field name="group_id" ref="m0c0_acc_group_0"/>
+        </record>
+        <record id="m0c0_acct_835" model="account.account.template">
+            <field name="name">Gastos Financieros</field>
+            <field name="code">835</field>
+            <field name="user_type_id" ref="m0c0_type_account_24"/>
+            <field name="chart_template_id" ref="m0c0_acc_temp_grl"/>
+            <field name="reconcile" eval="False"/>
+            <field name="group_id" ref="m0c0_acc_group_0"/>
+        </record>
+        <record id="m0c0_acct_900" model="account.account.template">
+            <field name="name">Ventas</field>
+            <field name="code">900</field>
+            <field name="user_type_id" ref="m0c0_type_account_25"/>
+            <field name="chart_template_id" ref="m0c0_acc_temp_grl"/>
+            <field name="reconcile" eval="False"/>
+            <field name="group_id" ref="m0c0_acc_group_0"/>
+        </record>
+        <record id="m0c0_acct_920" model="account.account.template">
+            <field name="name">Ingresos Financieros</field>
+            <field name="code">920</field>
+            <field name="user_type_id" ref="m0c0_type_account_25"/>
+            <field name="chart_template_id" ref="m0c0_acc_temp_grl"/>
+            <field name="reconcile" eval="False"/>
+            <field name="group_id" ref="m0c0_acc_group_0"/>
+        </record>
+
+        <!-- [3] Specify some property to tamplate -->
+
+        <record id="m0c0_acc_temp_grl" model="account.chart.template">
+            <field name="property_account_receivable_id" ref="m0c0_acct_135"/>
+            <field name="property_account_payable_id" ref="m0c0_acct_405"/>
+            <field name="property_account_advance_receivable_id" ref="m0c0_acct_430"/>
+            <field name="property_account_advance_payable_id" ref="m0c0_acct_146"/>
+            <field name="property_account_expense_categ_id" ref="m0c0_acct_822"/>
+            <field name="property_account_income_categ_id" ref="m0c0_acct_900"/>
+            <field name="property_account_expense_id" ref="m0c0_acct_822"/>
+            <field name="property_account_income_id" ref="m0c0_acct_900"/>
+            <field name="property_stock_account_input_categ_id" ref="m0c0_acct_699"/>
+            <field name="property_stock_account_output_categ_id" ref="m0c0_acct_699"/>
+            <field name="property_stock_valuation_account_id" ref="m0c0_acct_183"/>
+            <field name="expense_currency_exchange_account_id" ref="m0c0_acct_835"/>
+            <field name="income_currency_exchange_account_id" ref="m0c0_acct_920"/>
+            <field name="complete_tax_set" eval="False"/>
+        </record>
+    </data>
+</odoo>

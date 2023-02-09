@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_account_payment_form_inherit_payment_destination" model="ir.ui.view">
+            <field name="name">view.account.payment.form.inherit.payment.destination</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_form"/>
+            <field name="arch" type="xml">
+                <xpath expr='//group[2]' position="inside">
+                    <field name="destination_type" widget="radio" attrs="{'readonly': [('state', '!=', 'draft')],
+                                'invisible': [('payment_type', '=', 'transfer')]}"/>
+                    <field name="other_destination_account_id" attrs="{'readonly': [('state', '!=', 'draft')],
+                                'invisible': [('destination_type', '!=', 'other')],
+                                'required': [('destination_type', '=', 'other')]}" groups="account.group_account_user"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

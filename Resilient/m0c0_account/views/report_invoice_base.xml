@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_invoice_document_base" inherit_id="account.report_invoice_document">
+            <xpath expr="//div/div" position="attributes">
+                <attribute name="class">hidden</attribute>
+            </xpath>
+            <xpath expr="//div/div" position="before">
+                <div class="row">
+                    <div class="col-xs-6"><strong>Proveedor: </strong><spam>
+                        <t t-if="o.type == 'in_invoice'"><t t-esc="o.partner_id.name"/></t>
+                        <t t-if="o.type == 'out_invoice'"><t t-esc="o.company_id.name"/></t></spam>
+                    </div>
+                    <div class="col-xs-6"><strong>Cliente: </strong><spam>
+                        <t t-if="o.type == 'in_invoice'"><t t-esc="o.company_id.name"/></t>
+                        <t t-if="o.type == 'out_invoice'"><t t-esc="o.partner_id.name"/></t></spam>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6"><strong>Dirección: </strong><spam>
+                        <t t-if="o.type == 'in_invoice'"><t t-esc="o.partner_id.street"/>
+                            <t t-if="o.partner_id.street2"><strong>% </strong><t t-esc="o.partner_id.street2"/></t>
+                            <t t-if="o.partner_id.city"><t t-esc="o.partner_id.city"/></t>
+                            <t t-if="o.partner_id.state_id"><t t-esc="o.partner_id.state_id.name"/></t>
+                            <t t-if="o.partner_id.country_id"><t t-esc="o.partner_id.country_id.name"/></t>
+                        </t>
+                        <t t-if="o.type == 'out_invoice'"><t t-esc="o.company_id.partner_id.street"/>
+                            <t t-if="o.company_id.partner_id.street2"><strong>% </strong><t t-esc="o.company_id.partner_id.street2"/></t>
+                            <t t-if="o.company_id.partner_id.city"><t t-esc="o.company_id.partner_id.city"/></t>
+                            <t t-if="o.company_id.partner_id.state_id"><t t-esc="o.company_id.partner_id.state_id.name"/></t>
+                            <t t-if="o.company_id.partner_id.country_id"><t t-esc="o.company_id.partner_id.country_id.name"/></t>
+                        </t></spam>
+                    </div>
+                    <div class="col-xs-6"><strong>Dirección: </strong><spam>
+                        <t t-if="o.type == 'in_invoice'"><t t-esc="o.company_id.partner_id.street"/>
+                            <t t-if="o.company_id.partner_id.street2"><strong>% </strong><t t-esc="o.company_id.partner_id.street2"/></t>
+                            <t t-if="o.company_id.partner_id.city"><t t-esc="o.company_id.partner_id.city"/></t>
+                            <t t-if="o.company_id.partner_id.state_id"><t t-esc="o.company_id.partner_id.state_id.name"/></t>
+                            <t t-if="o.company_id.partner_id.country_id"><t t-esc="o.company_id.partner_id.country_id.name"/></t>
+                        </t>
+                        <t t-if="o.type == 'out_invoice'"><t t-esc="o.partner_id.street"/>
+                            <t t-if="o.partner_id.street2"><strong>% </strong><t t-esc="o.partner_id.street2"/></t>
+                            <t t-if="o.partner_id.city"><t t-esc="o.partner_id.city"/></t>
+                            <t t-if="o.partner_id.state_id"><t t-esc="o.partner_id.state_id.name"/></t>
+                            <t t-if="o.partner_id.country_id"><t t-esc="o.partner_id.country_id.name"/></t>
+                        </t></spam>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6"><strong>Teléfonos: </strong><spam>
+                        <t t-if="o.type == 'in_invoice'"><t t-esc="o.partner_id.phone"/></t>
+                        <t t-if="o.type == 'out_invoice'"><t t-esc="o.company_id.partner_id.phone"/></t></spam>
+                    </div>
+                    <div class="col-xs-6"><strong>Teléfonos: </strong><spam>
+                        <t t-if="o.type == 'in_invoice'"><t t-esc="o.company_id.partner_id.phone"/></t>
+                        <t t-if="o.type == 'out_invoice'"><t t-esc="o.partner_id.phone"/></t></spam>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6"><strong>Correo electrónico: </strong><spam>
+                        <t t-if="o.type == 'in_invoice'"><t t-esc="o.partner_id.email"/></t>
+                        <t t-if="o.type == 'out_invoice'"><t t-esc="o.company_id.partner_id.email"/></t></spam>
+                    </div>
+                    <div class="col-xs-6"><strong>Correo electrónico: </strong><spam>
+                        <t t-if="o.type == 'in_invoice'"><t t-esc="o.company_id.partner_id.email"/></t>
+                        <t t-if="o.type == 'out_invoice'"><t t-esc="o.partner_id.email"/></t></spam>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6"><strong>Código NIT: </strong><spam>
+                        <t t-if="o.type == 'in_invoice'"><t t-esc="o.partner_id.vat"/></t>
+                        <t t-if="o.type == 'out_invoice'"><t t-esc="o.company_id.partner_id.vat"/></t></spam>
+                    </div>
+                    <div class="col-xs-6"><strong>Código NIT: </strong><spam>
+                        <t t-if="o.type == 'in_invoice'"><t t-esc="o.company_id.partner_id.vat"/></t>
+                        <t t-if="o.type == 'out_invoice'"><t t-esc="o.partner_id.vat"/></t></spam>
+                    </div>
+                </div>
+                <div name="cup_prov" class="row">
+                    <div class="col-xs-6"><strong>Cuenta bancaria: </strong><spam>
+                        <t t-if="o.type == 'in_invoice'"><t t-esc="o.partner_bank_id.acc_number"/></t>
+                        <t t-if="o.type == 'out_invoice'"><t t-esc="o.partner_bank_id.acc_number"/></t></spam>
+                    </div>
+                    <div class="col-xs-6"><strong>Cuenta bancaria: </strong><spam>
+                        <t t-if="o.type == 'in_invoice'"><t t-esc="o.other_partner_bank_id.acc_number"/></t>
+                        <t t-if="o.type == 'out_invoice'"><t t-esc="o.other_partner_bank_id.acc_number"/></t></spam>
+                    </div>
+                </div>
+            </xpath>
+            <xpath expr="//div[@class='row mt32 mb32']/div" position="before">
+                <div class="col-xs-2">
+                    <strong>Folio:</strong>
+                </div>
+            </xpath>
+            <xpath expr="//div[@class='row mt32 mb32']/div" position="after">
+                <div class="col-xs-4">
+                    <strong>Operation:</strong>
+                    <p>
+                        <span t-if="o.operation == 'sale'">Wholesale of goods and services.</span>
+                        <span t-if="o.operation == 'internal_sale'">Internal sale where they mediate operations of collection and payments.</span>
+                        <span t-if="o.operation == 'delivery'">Deliveries of products on consignment or in warehouses.</span>
+                        <span t-if="o.operation == 'active_sale'">Sales of tangible fixed assets.</span>
+                        <span t-if="o.operation == 'return'">Make returns.</span>
+                    </p>
+                </div>
+                <div class="col-xs-2" t-if="o.contract">
+                    <strong>Contract:</strong>
+                    <p t-field="o.contract"/>
+                </div>
+                <div class="col-xs-2" t-if="o.contract_date">
+                    <strong>Contract Date:</strong>
+                    <p t-field="o.contract_date"/>
+                </div>
+            </xpath>
+
+            <xpath expr="//div[@id='total']/div/table/t" position="replace">
+                <tr class="border-black">
+                    <td><strong>Tax</strong></td>
+                    <td class="text-right">
+                        <span t-field="o.amount_tax" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                    </td>
+                </tr>
+
+            </xpath>
+
+            <xpath expr="//div/p[3]" position="after">
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <strong>Made by:</strong>
+                        <div>Name: </div>
+                        <div>Charge: </div>
+                        <div>Date: </div>
+                        <div>Sign: </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <strong>Carried by:</strong>
+                        <div><span>Name: </span><t t-esc="o.carrier_id.name"/></div>
+                        <div><span>CI: </span><t t-esc="o.carrier_id.ni"/></div>
+                        <div><span>Licence: </span><t t-esc="o.carrier_id.npc"/></div>
+                        <div><span>Vehicle Plate: </span><t t-esc="o.vehicle_plate"/></div>
+                        <div t-if="o.card_number"><span>Card Number: </span><t t-esc="o.card_number"/></div>
+                        <div t-if="o.railroad_locker"><span>Railroad Locker: </span><t t-esc="o.railroad_locker"/></div>
+                        <div><span>Date:</span></div>
+                        <div><span>Sign:</span></div>
+                    </div>
+                    <div class="col-xs-4">
+                        <strong>Accounted by:</strong>
+                        <div><span>Name:</span></div>
+                        <div><span>Charge:</span></div>
+                        <div><span>Date:</span></div>
+                        <div><span>Sign:</span></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <strong>Received by:</strong>
+                        <div><span>Name:</span></div>
+                        <div><span>CI:</span></div>
+                        <div><span>Charge:</span></div>
+                        <div><span>Date:</span></div>
+                        <div><span>Sign:</span></div>
+                    </div>
+                    <div class="col-xs-4">
+                        <strong>Delivered by:</strong>
+                        <div><span>Name:</span></div>
+                        <div><span>Date:</span></div>
+                        <div><span>Sign:</span></div>
+                    </div>
+                </div>
+            </xpath>
+
+        </template>
+
+        <template id="account.report_invoice">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="m0c0_account.report_invoice_document_base" t-lang="o.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

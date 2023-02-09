@@ -1,0 +1,126 @@
+<odoo>
+    <data>
+        <record id="view_bank_statement_form_inherit" model="ir.ui.view">
+            <field name="name">account.bank.statement.form</field>
+            <field name="model">account.bank.statement</field>
+            <field name="inherit_id" ref="account.view_bank_statement_form"/>
+            <field name="priority" eval="20"/>
+            <field name="arch" type="xml">
+                <field name="line_ids" position="before">
+                    <separator string="Accepted in Books"/>
+                </field>
+                <xpath expr="//group[@class = 'oe_subtotal_footer oe_right']" position = "replace"/>
+                <field name="line_ids" position="after" >
+                    <filed name="journal_type" invisible="1"/>
+                    <separator string="No Accepted in Books" attrs="{'invisible': [('journal_type','=', 'cash')]}"/>
+                    <field name="line_fictions_ids" context="{'date':date}" attrs="{'invisible': [('journal_type','=', 'cash')]}">
+                        <tree editable="bottom" string="Statement lines fictions">
+                            <field name="sequence" widget="handle"/>
+                            <field name="line_type"/>
+                            <field name="difference_ids" widget="many2many_tags"
+                                   attrs="{'invisible': [('line_type', '!=', 'correction')], 'required': [('line_type', '=', 'correction')]}"
+                                   options="{'no_create': True, 'no_open': True}"
+                                   domain="[('line_type', '=', 'error'),('correction_id', '=', False)]"/>
+                            <field name="correction_id" invisible="1"/>
+                            <field name="date"/>
+                            <field name="partner_id" domain="['|',('parent_id','=',False),('is_company','=',True)]"
+                                   context="{'default_supplier': 1}"/>
+                            <field name="ref" groups="base.group_no_one"/>
+                            <field name="amount" sum="SubTotal" attrs="{'readonly': [('line_type', '=', 'correction')]}"/>
+                            <field name="journal_currency_id" invisible="1"/>
+                            <field name="amount_currency" invisible="1"/>
+                            <field name="currency_id" options="{'no_create': True}" invisible="1"/>
+                            <field name="bank_account_id" invisible="1"
+                                   domain="['|', ('partner_id', '=', partner_id), ('partner_id', '=', False)]"/>
+                        </tree>
+                    </field>
+                    <field name="journal_type" invisible="1"/>
+                    <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                        <label for="total_entry_encoding"
+                               attrs="{'invisible': [('journal_type','=', 'cash')]}"/>
+                        <field name="total_entry_encoding" nolabel="1"
+                               attrs="{'invisible': [('journal_type','=', 'cash')]}"/>
+                        <label for="total_entry_encoding_fictions"
+                               attrs="{'invisible': [('journal_type','=', 'cash')]}"/>
+                        <field name="total_entry_encoding_fictions" nolabel="1"
+                               attrs="{'invisible': [('journal_type','=', 'cash')]}"/>
+                        <div class="oe_subtotal_footer_separator oe_inline">
+                             <label for="balance_end" style="font-weight:bold; font-size:14px" />
+                        </div>
+                        <field name="balance_end" nolabel="1" class="oe_subtotal_footer_separator oe_inline"/>
+                    </group>
+                </field>
+
+            </field>
+        </record>
+        <record id="view_bank_statement_line_fictions_search" model="ir.ui.view">
+            <field name="name">account.bank.statement.line.fictions.search</field>
+            <field name="model">account.bank.statement.line.fictions</field>
+            <field name="arch" type="xml">
+                <search string="Search Bank Statements Line Fictions">
+                    <field name="ref"/>
+                    <field name="statement_id"/>
+                    <field name="partner_id"/>
+                    <field name="date"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_bank_statement_line_fictions_form" model="ir.ui.view">
+            <field name="name">account.bank.statement.line.fictions.form</field>
+            <field name="model">account.bank.statement.line.fictions</field>
+            <field name="priority">8</field>
+            <field name="arch" type="xml">
+                <form string="Statement Line Fictions" create="false">
+                    <group col="4">
+                        <field name="statement_id"/>
+                        <field name="line_type"/>
+                        <field name="date"/>
+                        <field name="ref"/>
+                        <field name="partner_id"/>
+                        <field name="amount"/>
+                        <field name="journal_currency_id" invisible="1"/>
+                        <field name="sequence"/>
+                        <field name="note"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_bank_statement_line_fictions_tree" model="ir.ui.view">
+            <field name="name">account.bank.statement.line.fictions.tree</field>
+            <field name="model">account.bank.statement.line.fictions</field>
+            <field name="priority">8</field>
+            <field name="arch" type="xml">
+                <tree string="Statement lines Fictions" create="false">
+                    <field name="sequence" readonly="1" invisible="1"/>
+                    <field name="statement_id"/>
+                    <field name="date"/>
+                    <field name="ref"/>
+                    <field name="partner_id"/>
+                    <field name="amount"/>
+                    <field name="journal_currency_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_bank_statement_line_fictions" model="ir.actions.act_window">
+            <field name="name">Bank Statement Lines Fictions</field>
+            <field name="res_model">account.bank.statement.line.fictions</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="search_view_id" ref="view_bank_statement_line_fictions_search"/>
+            <field name="help" type="html">
+                <p>
+                    A bank statement line fictions is a error/corrections transaction on a bank account.
+                </p>
+                <p>
+                    Odoo allows you to reconcile a statement line fictions line directly with
+                    other statement line fictions.
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

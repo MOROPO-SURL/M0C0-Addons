@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="account_common_report_view" model="ir.ui.view">
+        <field name="name">Test</field>
+        <field name="model">account.ledger.report</field>
+        <field name="arch" type="xml">
+        <form string="Report Options">
+            <field name="company_id" invisible="1"/>
+            <group col="4">
+                <field name="target_move" string="Target Moves" widget="radio"/>
+                <field name="date_to" string="End Date" required="1"/>
+            </group>
+            <group>
+                <field name="account_ids" options="{'no_create': True}"/>
+            </group>
+            <footer>
+                <button name="check_report" string="Print" type="object" default_focus="1" class="oe_highlight"/>
+                <button string="Cancel" class="btn btn-default" special="cancel" />
+            </footer>
+        </form>
+        </field>
+    </record>
+
+
+
+     <record id="action_ledger_report_wizard" model="ir.actions.act_window">
+        <field name="name">Ledger</field>
+        <field name="res_model">account.ledger.report</field>
+        <field name="view_type">form</field>
+        <field name="view_id" ref="account_common_report_view"/>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem name="Report Ledge" action="action_ledger_report_wizard" id="menu_action_ledger_report" parent="account.menu_finance_legal_statement" sequence="1"/>
+
+</odoo>

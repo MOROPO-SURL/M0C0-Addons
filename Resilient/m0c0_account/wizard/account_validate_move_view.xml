@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="validate_account_move_view_inherited" model="ir.ui.view">
+            <field name="name">Post Journal Entries1</field>
+            <field name="model">validate.account.move</field>
+            <field name="inherit_id" ref="account.validate_account_move_view"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//form/label" position="replace">
+                        <p attrs="{'invisible':[('account_moves_count','=',0)]}">
+                            All selected journal entries will be validated and posted. You won't be able to modify them afterwards.
+                        </p>
+                        <p attrs="{'invisible':[('account_moves_count','>',0)]}">
+                            There is no journal items in draft state to post.
+                        </p>
+                        <div>
+                            <field name="account_moves_count" invisible="1"/>
+                            <field name="account_move_ids" nolabel="1" readonly="1"/>
+                        </div>
+                    </xpath>
+                    <button name="validate_move" position="attributes">
+                        <attribute name="attrs">{'invisible':[('account_moves_count','=',0)]}</attribute>
+                    </button>
+                </data>
+            </field>
+        </record>
+    </data>
+</odoo>

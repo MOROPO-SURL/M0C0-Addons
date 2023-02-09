@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <!-- explicit list view definition -->
+
+        <record id="cu_invoice_tree" model="ir.ui.view">
+            <field name="name">account.invoice.tree3</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_tree"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="operation"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="invoice_form3">
+            <field name="name">account.invoice.form3</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="before">
+                    <field name="operation"/>
+                </field>
+                <field name="partner_id" position="after">
+                    <field name="contract"/>
+                    <field name="contract_date"/>
+                    <field name="sheet_number"/>
+                </field>
+                <field name="partner_bank_id" position="replace">
+                    <h3>Company</h3>
+                    <field name="partner_bank_id" domain="[('partner_id.ref_company_ids', 'in', (company_id))]" widget="selection" invisible="0"/>
+                    <h3>Partner</h3>
+                    <field name="other_partner_bank_id" domain="[('partner_id', '=', partner_id)]" widget="selection" invisible="0"/>
+                </field>
+                <xpath expr="//notebook/page[2]" position="after">
+                    <page string="Carrier Data">
+                        <group>
+                            <group>
+                                <field name="carrier_id" options="{'no_create': True}"/>
+                                <field name="vehicle_plate"/>
+                            </group>
+                            <group>
+                                <field name="card_number"/>
+                                <field name="railroad_locker"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="cu_invoice_supplier_tree" model="ir.ui.view">
+            <field name="name">account.invoice.supplier.tree3</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_tree"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="operation"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="invoice_supplier_form3">
+            <field name="name">account.invoice.supplier.form3</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="before">
+                    <field name="operation"/>
+                </field>
+                <field name="partner_id" position="after">
+                    <field name="contract"/>
+                    <field name="contract_date"/>
+                </field>
+                <field name="partner_bank_id" position="replace">
+                    <h3>Partner</h3>
+                    <field name="partner_bank_id" domain="[('partner_id', '=', partner_id)]" widget="selection" invisible="0"/>
+                    <h3>Company</h3>
+                    <field name="other_partner_bank_id" domain="[('partner_id.ref_company_ids', 'in', (company_id))]" widget="selection" invisible="0"/>
+                </field>
+                <xpath expr="//notebook/page[2]" position="after">
+                    <page string="Carrier Data">
+                        <group>
+                            <group>
+                                <field name="carrier_id" options="{'no_create': True}"/>
+                                <field name="vehicle_plate"/>
+                            </group>
+                            <group>
+                                <field name="card_number"/>
+                                <field name="railroad_locker"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_account_invoice_filter_inherited" model="ir.ui.view">
+            <field name="name">account.invoice.select.inherited</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='activities_upcoming_all']" position="after">
+                    <filter string="Canceled invoices list" name="canceled_invoices"
+                            domain="[('refund_invoice_ids', '!=', False)]"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

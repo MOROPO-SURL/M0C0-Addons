@@ -1,0 +1,32 @@
+# -*- coding: utf-8 -*-
+
+{
+    'name': "M0C0 - Contabilidad",
+    'version': '0.1.0',
+    "author": "MOROPO S.U.R.L.",
+    'website': 'https://www.moropo.cu',
+    "contact": 'contacto@moropo.cu',
+    'category': 'Localization',
+    'summary': "",
+    'depends': ['account', 'm0c0_account_accounting', 'm0c0_shared'],
+    'data': [
+        'views/account_report_menu_invisible.xml',
+        'views/partner_view.xml',
+        'views/cu_account_view.xml',
+        'views/res_config_settings_views.xml',
+        'views/report_invoice_base.xml',
+        'views/cu_account_bank_statement_view.xml',
+        'views/account_menu_invisible.xml',
+        'views/account_payment_view.xml',
+        'wizard/views/bank_reconcile_report_wizard_view.xml',
+        'wizard/account_validate_move_view.xml',
+        'wizard/account_ledger_report_view.xml',
+        'report/bank_reconcile_report_template.xml',
+        'report/bank_reconcile_dashboard_view.xml',
+        'report/ledger_report_template.xml',
+        'report/operational_voucher_report_template.xml',
+        'security/ir.model.access.csv',
+    ],
+    'installable': True,
+    'auto_install': True,
+}
