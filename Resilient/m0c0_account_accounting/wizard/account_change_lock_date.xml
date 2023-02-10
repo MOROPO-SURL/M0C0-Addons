@@ -2,7 +2,7 @@
 <odoo>
     <data>
         <record id="view_account_change_lock_date" model="ir.ui.view">
-            <field name="name">account.change.lock.date.form</field>
+            <field name="name">MOROPO</field>
             <field name="model">account.change.lock.date</field>
             <field name="arch" type="xml">
                 <form>
