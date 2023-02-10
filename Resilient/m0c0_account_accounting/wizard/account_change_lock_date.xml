@@ -10,6 +10,7 @@
                         <group>
                             <field name="period_lock_date"/>
                             <field name="fiscalyear_lock_date"/>
+                            <label class="text-danger"><b>Before changing this date: You should have made a save of database and have issued the financial statements before closing period</b></label>
                         </group>
                     </sheet>
                     <footer>
