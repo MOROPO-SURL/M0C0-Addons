@@ -8,13 +8,14 @@
                 <form>
                     <sheet>
                         <group>
-                            <group>
-                                <field name="period_lock_date"/>
-                                <field name="fiscalyear_lock_date"/>
-                            </group>
-                            <label class="text-danger"><b>Before changing this date: You should have made a save of database and have issued the financial statements before closing period</b></label>
+                            <field name="period_lock_date"/>
+                            <field name="fiscalyear_lock_date"/>
                         </group>
                     </sheet>
+                    <footer>
+                        <button string="Save" name="change_lock_date" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
                 </form>
             </field>
         </record>
