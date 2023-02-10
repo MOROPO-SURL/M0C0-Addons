@@ -2,7 +2,7 @@
 
 {
     "name": "M0C0 - Contabilidad Financiera y Analítica",
-    "version": "0.1.8",
+    "version": "0.1.9",
     "author": "MOROPO S.U.R.L.",
     "website": "https://www.moropo.cu",
     "contact": "contacto@moropo.cu",
