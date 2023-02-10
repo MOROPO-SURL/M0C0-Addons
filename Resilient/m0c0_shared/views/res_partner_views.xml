@@ -57,17 +57,6 @@
             </field>
         </record>
 
-        <record id="view_partner_tree_inherit" model="ir.ui.view">
-            <field name="name">res.partner.tree.inherit</field>
-            <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_partner_tree"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='phone']" position="before">
-                    <field name="archive_number"/>
-                </xpath>
-            </field>
-        </record>
-
         <record id="res_partner_kanban_view" model="ir.ui.view">
             <field name="name">pos_debt_notebook.res.partner.kanban</field>
             <field name="model">res.partner</field>
