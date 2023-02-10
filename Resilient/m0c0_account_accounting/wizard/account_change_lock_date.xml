@@ -2,12 +2,19 @@
 <odoo>
     <data>
         <record id="view_account_change_lock_date" model="ir.ui.view">
-            <field name="name">MOROPO</field>
+            <field name="name">account.change.lock.date.form</field>
             <field name="model">account.change.lock.date</field>
             <field name="arch" type="xml">
                 <form>
-                    <field name="period_lock_date"/>
-                    <field name="fiscalyear_lock_date"/>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="period_lock_date"/>
+                                <field name="fiscalyear_lock_date"/>
+                            </group>
+                            <label class="text-danger"><b>Before changing this date: You should have made a save of database and have issued the financial statements before closing period</b></label>
+                        </group>
+                    </sheet>
                 </form>
             </field>
         </record>
