@@ -31,9 +31,6 @@
                 <xpath expr="//field[@name='zip'][2]"
                        position="replace">
                 </xpath>
-                <field name="vat" position="before">
-                    <field name="ni" placeholder="e.g. 56120915428" />
-                </field>
             </field>
         </record>
 

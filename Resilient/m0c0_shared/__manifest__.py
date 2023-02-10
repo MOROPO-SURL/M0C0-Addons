@@ -2,7 +2,7 @@
 
 {
     "name": "M0C0 - Base Compartida",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "author": "MOROPO S.U.R.L.",
     'website': 'https://www.moropo.cu',
     "contact": 'contacto@moropo.cu',
