@@ -2,7 +2,7 @@
 
 {
     "name": "M0C0 - Contabilidad Financiera y Analítica",
-    "version": "0.1.10",
+    "version": "0.1.11",
     "author": "MOROPO S.U.R.L.",
     "website": "https://www.moropo.cu",
     "contact": "contacto@moropo.cu",
@@ -10,9 +10,9 @@
     "depends": ["account", "web_tour"],
     "data": [
         "security/accounting_security.xml",
-        "views/res_config_settings_views.xml",
-        "views/hook_views.xml",
         "wizard/account_change_lock_date.xml",
+        "views/hook_views.xml",
+        "views/res_config_settings_views.xml",
     ],
     "installable": True,
     "auto_install": False,
