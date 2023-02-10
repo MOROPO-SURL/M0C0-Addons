@@ -10,7 +10,6 @@
                         <group>
                             <field name="period_lock_date"/>
                             <field name="fiscalyear_lock_date"/>
-                            <label class="text-danger"><b>Before changing this date: You should have made a save of database and have issued the financial statements before closing period</b></label>
                         </group>
                     </sheet>
                     <footer>
@@ -31,11 +30,11 @@
         </record>
 
         <menuitem
-                id="menu_action_change_lock_date"
-                name="Lock Dates"
-                action="action_view_account_change_lock_date"
-                parent="account.menu_finance_entries_actions"
-                sequence="30"
-                groups="account.group_account_user"/>
+            id="menu_action_change_lock_date"
+            name="Lock Dates"
+            action="action_view_account_change_lock_date"
+            parent="account.menu_finance_entries_actions"
+            sequence="30"
+            groups="account.group_account_user"/>
     </data>
 </odoo>
