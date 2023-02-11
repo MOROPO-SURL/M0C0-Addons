@@ -7,7 +7,7 @@
             <field name="inherit_id" ref="account.validate_account_move_view"/>
             <field name="arch" type="xml">
                 <data>
-                    <xpath expr="//form/label" position="replace">
+                    <xpath expr="//form/span" position="replace">
                         <p attrs="{'invisible':[('account_moves_count','=',0)]}">
                             All selected journal entries will be validated and posted. You won't be able to modify them afterwards.
                         </p>

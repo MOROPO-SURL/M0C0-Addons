@@ -6,9 +6,9 @@
             <field name="model">account.journal</field>
             <field name="inherit_id" ref="account.account_journal_dashboard_kanban_view" />
             <field name="arch" type="xml">
-                <xpath expr="//kanban/templates/t[3]/div/div[3]/div[3]" position="after">
+                <xpath expr="//div[@name='bank_journal_cta']/button" position="after">
                     <div>
-                        <a type="object" name="open_action_with_context_dashboard" context="{'action_name': 'action_bank_reconcile_report_wizard', 'use_domain': True}">Bank reconcile</a>
+                        <a type="object" name="open_action_with_context_dashboard" context="{'action_name': 'action_bank_reconcile_report_wizard', 'use_domain': True}">Reporte de Conciliación</a>
                     </div>
                 </xpath>
             </field>

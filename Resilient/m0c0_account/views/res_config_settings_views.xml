@@ -6,38 +6,9 @@
             <field name="priority" eval="1"/>
             <field name="inherit_id" ref="account.res_config_settings_view_form"/>
             <field name="arch" type="xml">
-
-                 <xpath expr="//div[@data-key='account_invoicing']/div[5]" position="after">
-                    <h2>Reports</h2>
-                    <div class="row mt16 o_settings_container">
-                        <div class="col-xs-12 col-md-6 o_setting_box">
-                            <div class="o_setting_left_pane">
-                                <field name="include_m0c0_account_financial_report"/>
-                            </div>
-                            <div class="o_setting_right_pane">
-                                <label string="Accounting Reports" for="include_m0c0_account_financial_report"/>
-                                <div class="text-muted">
-                                    Print accounting reports
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-md-6 o_setting_box">
-                            <div class="o_setting_left_pane">
-                                <field name="include_m0c0_report_builder"/>
-                            </div>
-                            <div class="o_setting_right_pane">
-                                <label for="include_m0c0_report_builder"/>
-                                <div class="text-muted">
-                                    Print customized reports
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </xpath>
-
                 <div id="fiscalyear" position="after">
                     <div class="col-xs-12 col-md-12 o_setting_box text-center">
-                        <label string="Account types for nominal closing"/>
+                        <div class="h5">Account types for nominal closing"</div>
                     </div>
                     <div class="col-xs-12 col-md-6 o_setting_box" id="income_nominal">
                         <div class="o_setting_left_pane"/>
@@ -69,19 +40,19 @@
                 <div id="eu_service" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </div>
-                <xpath expr="//div[@data-key='account_invoicing']/div[4]/div[1]" position="attributes">
+                <xpath expr="//div[@data-key='account']/div[4]/div[1]" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
-                <xpath expr="//div[@data-key='account_invoicing']/div[4]/div[3]" position="attributes">
+                <xpath expr="//div[@data-key='account']/div[4]/div[3]" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
-                <xpath expr="//div[@data-key='account_invoicing']/div[4]/div[4]" position="attributes">
+                <xpath expr="//div[@data-key='account']/div[4]/div[4]" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
-                <xpath expr="//div[@data-key='account_invoicing']/div[5]" position="attributes">
+                <xpath expr="//div[@data-key='account']/div[5]" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
-                <xpath expr="//div[@data-key='account_invoicing']/h2[5]" position="attributes">
+                <xpath expr="//div[@data-key='account']/h2[5]" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
                 <div id="dynamic_report" position="attributes">

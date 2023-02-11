@@ -32,6 +32,6 @@
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
-    <menuitem name="Report Ledge" action="action_ledger_report_wizard" id="menu_action_ledger_report" parent="account.menu_finance_legal_statement" sequence="1"/>
+    <menuitem name="Libro Mayor Alt. (??)" action="action_ledger_report_wizard" id="menu_action_ledger_report" parent="accounting_pdf_reports.menu_finance_legal_statement" sequence="1"/>
 
 </odoo>
