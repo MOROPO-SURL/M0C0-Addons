@@ -165,7 +165,7 @@
         <record id="ncc_financial_report_ege_18" model="account.financial.report">
             <field name="name">TOTAL DE GASTOS POR ELEMENTOS</field>
             <field name="sign">1</field>
-            <field name="type">account_reports</field>
+            <field name="type">account_report</field>
             <field name="sequence">18</field>
             <field name="parent_id" ref="ncc_financial_report_ege"/>
             <field name="account_report_ids" eval="[(6, 0, [ref('ncc_financial_report_ege_01'),

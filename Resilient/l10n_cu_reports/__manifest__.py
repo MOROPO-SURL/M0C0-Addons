@@ -2,13 +2,13 @@
 # Segu
 
 {
-     'name': 'Cuba - Contabilidad Reportes',
-     'version': '15.0',
-     'category': 'Generic Modules/Reporting',
+     'name': 'M0C0 - Reportes de Información Financiera',
+     'version': '0.6.0',
+     'category': 'Reporting',
      'summary': """
         Proformas Estados Financieros (Sector Empresarial) - Cuba.
      """,
-     'author': 'Comunidad Cubana de Odoo',
+     'author': 'Comunidad Cubana de Odoo, MOROPO S.U.R.L.',
      'depends': ["accounting_pdf_reports", "report_xlsx", "l10n_cu"],
      'data': [
           "data/account_financial_report_es.xml",

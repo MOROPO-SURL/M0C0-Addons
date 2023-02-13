@@ -9,7 +9,7 @@ class AccountingReport(models.TransientModel):
 
     target_move = fields.Selection(selection=[('posted', 'All Posted Entries'),
                                               ('all', 'All Entries')])
-    date_to = fields.Date(required=True, default=lambda self: datetime.now())
+    date_to = fields.Date(required=True, string='Fecha Final')
     
     display_account = fields.Selection(selection=[("all", "All"), ("not_zero", "With balance is not equal to 0")],
                                        string='Display Accounts', required=True, default='all')
