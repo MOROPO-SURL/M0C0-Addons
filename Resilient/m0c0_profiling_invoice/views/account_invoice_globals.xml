@@ -1,37 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="address_override" name="Redefinición de espacio para generales" inherit_id="web.address_layout">
-        <xpath expr="//div[@name='address']" position="replace">
-            <t t-esc="address" />
+        <xpath expr="//t[@t-name='web.address_layout']" position="replace">
+            <t t-name="web.address_layout">
+                <t t-raw="address" />
+            </t>
         </xpath>
     </template>
     <template id="invoice_globals" name="Generales de las partes en la Facturas" inherit_id="account.report_invoice_document">
-        <xpath expr="//address" position="replace">
-            <div class="col-6 mb-4">
-                <p class="m-0"><strong>PRESTADOR</strong></p>
-                <p class="mt-1 mb-1" style="font-size: 1.35rem;" t-field="res_company.name"/>
-                <p class="m-0"><strong>Direcci&amp;oacute;n:</strong>&amp;nbsp;<span t-field="res_company.street"/><t t-if="res_company.street2">&amp;nbsp;<span t-field="res_company.street2"/></t><span>,&amp;nbsp;</span><span t-field="res_company.state_id.name"/><span>,&amp;nbsp;</span><span t-field="res_company.country_id.name"/></p>
-                <p class="m-0"><strong>C&amp;oacute;digo NIT:</strong>&amp;nbsp;<span t-field="res_company.vat"/></p>
-                <p class="m-0">
-                    <span><strong>Cuenta Bancaria:</strong></span>
-                    <span t-field="o.partner_bank_id.acc_holder_name" />
-                    <span t-field="o.partner_bank_id.acc_number" />
-                    <span>&amp;nbsp;(</span><span t-field="o.partner_bank_id.currency_id" /><span>)</span>
-                    <span>,&amp;nbsp;</span><span t-field="o.partner_bank_id.bank_id.name" /><span></span>
-                </p>
-            </div>
-            <div class="col-6 mb-4">
-                <p class="m-0"><strong>CLIENTE</strong></p>
-                <p class="mt-1 mb-1" style="font-size: 1.35rem;" t-field="o.partner_id.name"/>
-                <p class="m-0"><strong>Dirección:</strong>&amp;nbsp;<span t-field="o.partner_id.street"/><t t-if="o.partner_id.street2">&amp;nbsp;<span t-field="o.partner_id.street2"/></t><span>,&amp;nbsp;</span><span t-field="o.partner_id.state_id.name"/><span>,&amp;nbsp;</span><span t-field="o.partner_id.country_id.name"/></p>
-                <p class="m-0"><strong>C&amp;oacute;digo NIT:</strong>&amp;nbsp;<span t-field="o.partner_id.vat"/></p>
-                <p class="m-0">
-                    <span><strong>Cuenta Bancaria:</strong></span>
-                    <span t-field="o.partner_id.bank_ids[0].acc_holder_name" />
-                    <span t-field="o.partner_id.bank_ids[0].acc_number" />
-                    <span>&amp;nbsp;(</span><span t-field="o.partner_id.bank_ids[0].currency_id" /><span>)</span>
-                    <span>,&amp;nbsp;</span><span t-field="o.partner_id.bank_ids[0].bank_id.name" /><span></span>
-                </p>
+        <xpath expr="//t[@t-set='address']" position="replace">
+            <p class="m-0 mt-2 text-muted"><strong><em>Datos del Cliente</em></strong></p>
+            <p class="mt-1 mb-1" style="font-size: 1.35rem;" t-field="o.partner_id.name"/>
+            <p class="m-0"><strong>Dirección:</strong>&amp;nbsp;<span t-field="o.partner_id.street"/><t t-if="o.partner_id.street2">&amp;nbsp;<span t-field="o.partner_id.street2"/></t><span>,&amp;nbsp;</span><span t-field="o.partner_id.state_id.name"/><span>,&amp;nbsp;</span><span t-field="o.partner_id.country_id.name"/></p>
+            <p class="m-0"><strong>C&amp;oacute;digo NIT:</strong>&amp;nbsp;<span t-field="o.partner_id.vat"/></p>
+            <p class="m-0 mb-4">
+                <span><strong>Cuenta Bancaria:</strong></span>
+                <span t-field="o.partner_id.bank_ids[0].acc_holder_name" />
+                <span t-field="o.partner_id.bank_ids[0].acc_number" />
+                <span>&amp;nbsp;(</span><t t-if="o.partner_id.bank_ids[0].currency_id"><span t-field="o.partner_id.bank_ids[0].currency_id" /></t><t t-else=""><span t-field="res_company.currency_id" /></t><span>)</span>
+                <span>,&amp;nbsp;</span><span t-field="o.partner_id.bank_ids[0].bank_id.name" /><span></span>
+            </p>
+        </xpath>
+    </template>
+    <template id="external_layout_standard_override" inherit_id="web.external_layout_standard">
+        <xpath expr="//div[@class='header']" position="replace">
+            <div class="header" t-att-style="report_header_style">
+                <div class="row">
+                    <div class="col-3">
+                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" class="img-fluid" />
+                    </div>
+                    <div class="col-9">
+                        <p class="m-0"><strong>Direcci&amp;oacute;n:</strong>&amp;nbsp;<span t-field="res_company.street"/><t t-if="res_company.street2">&amp;nbsp;<span t-field="res_company.street2"/></t><span>,&amp;nbsp;</span><span t-field="res_company.state_id.name"/><span>,&amp;nbsp;</span><span t-field="res_company.country_id.name"/></p>
+                        <p class="m-0"><strong>C&amp;oacute;digo NIT:</strong>&amp;nbsp;<span t-field="res_company.vat"/></p>
+                        <p class="m-0">
+                            <span><strong>Cuenta Bancaria:</strong></span>
+                            <span t-field="o.partner_bank_id.acc_holder_name" />
+                            <span t-field="o.partner_bank_id.acc_number" />
+                            <span>&amp;nbsp;(</span><t t-if="o.partner_bank_id.currency_id"><span t-field="o.partner_bank_id.currency_id" /></t><t t-else=""><span t-field="res_company.currency_id" /></t><span>)</span>
+                            <span>,&amp;nbsp;</span><span t-field="o.partner_bank_id.bank_id.name" /><span></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="zero_min_height mt-1 mb-1">
+                    <div style="border-bottom: 1px solid black;"/>
+                </div>
             </div>
         </xpath>
     </template>

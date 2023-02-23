@@ -2,105 +2,130 @@
 <odoo>
     <template id="invoice_signblocks" name="Bloques para Firmantes en la Facturas" inherit_id="account.report_invoice_document">
         <xpath expr="//div[hasclass('page')]" position="after">
-            <hr />
+            <style type="text/css" rel="stylesheet">
+                p.input-space {font-size: 1.15rem;overflow:hidden;white-space:nowrap;text-overflow: ellipsis;}
+            </style>
+            <p class="mb-0"><strong>Elaborado por</strong></p>
+            <hr class="m-0 mb-1" color="black" />
             <div class="row">
-                <style type="text/css" rel="stylesheet">
-                    p.input-space {font-size: 1.15rem;margin-top: 0.4rem;margin-bottom: 0.4rem;}
-                    p.signature-space {font-size: 3rem;}
-                </style>
-                <div class="col-4">
-                    <p class="mb-1"><strong>Elaborado por</strong></p>
-                    <p class="input-space" t-field="o.invoice_user_id.name"/>
+                <div class="col-5">
+                    <p t-if="o.user_id.name" t-field="o.user_id.name" class="mb-1 input-space" />
+                    <p t-else="" class="mb-1 input-space">&amp;nbsp;</p>
                     <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
-                    <i>Nombre</i>
-                    </p>
-                    <p class="input-space" t-field="o.invoice_user_id.function"/>
-                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
-                    <i>Cargo</i>
-                    </p>
-                    <p class="input-space" t-field="o.invoice_date"/>
-                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
-                    <i>Fecha</i>
-                    </p>
-                    <p class="signature-space">&amp;nbsp;</p>
-                    <p class="mb-0 small text-muted" style="border-top: dashed 1px black;">
-                    <i>Firma</i>
-                    </p>
-                </div>
-                <div class="col-4">
-                    <p class="mb-1"><strong>Recibido por</strong></p>
-                    <p class="input-space">&amp;nbsp;</p>
-                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
-                    <i>Nombre</i>
-                    </p>
-                    <p class="input-space">&amp;nbsp;</p>
-                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
-                    <i>Cargo</i>
-                    </p>
-                    <p class="input-space">&amp;nbsp;</p>
-                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
-                    <i>Fecha</i>
-                    </p>
-                    <p class="signature-space">&amp;nbsp;</p>
-                    <p class="mb-0 small text-muted" style="border-top: dashed 1px black;">
-                    <i>Firma</i>
-                    </p>
-                </div>
-                <div class="col-4">
-                    <p class="mb-1"><strong>Contabilizado por</strong></p>
-                    <p class="input-space">&amp;nbsp;</p>
-                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
-                    <i>Nombre</i>
-                    </p>
-                    <p class="input-space">&amp;nbsp;</p>
-                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
-                    <i>Cargo</i>
-                    </p>
-                    <p class="input-space">&amp;nbsp;</p>
-                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
-                    <i>Fecha</i>
-                    </p>
-                    <p class="signature-space">&amp;nbsp;</p>
-                    <p class="mb-0 small text-muted" style="border-top: dashed 1px black;">
-                    <i>Firma</i>
-                    </p>
-                </div>
-            </div>
-            <p class="mb-1 mt-3"><strong>Transportado por</strong></p>
-            <div class="row">
-                <div class="col-4">
-                    <p class="input-space">&amp;nbsp;</p>
-                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
-                    <i>Nombre</i>
+                        <i>Nombre</i>
                     </p>
                 </div>
                 <div class="col-3">
-                    <p class="input-space">&amp;nbsp;</p>
+                    <p t-if="o.user_id.function" t-field="o.user_id.function" class="mb-1 input-space" />
+                    <p t-else="" class="mb-1 input-space">&amp;nbsp;</p>
                     <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
-                    <i># de Identidad</i>
+                        <i>Cargo</i>
                     </p>
-                    <p class="input-space">&amp;nbsp;</p>
+                </div>
+                <div class="col-2">
+                    <p t-field="o.date_invoice" class="mb-1 input-space" />
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                        <i>Fecha</i>
+                    </p>
+                </div>
+                <div class="col-2">
+                    <p class="mb-1 input-space">&amp;nbsp;</p>
+                    <p class="mb-0 small text-muted" style="border-top: dashed 1px black;">
+                        <i>Firma</i>
+                    </p>
+                </div>
+            </div>
+            <p class="mb-0 mt-2"><strong>Recibido por</strong></p>
+            <hr class="m-0 mb-1" color="black" />
+            <div class="row">
+                <div class="col-5">
+                    <p class="mb-1 input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                        <i>Nombre</i>
+                    </p>
+                </div>
+                <div class="col-3">
+                    <p class="mb-1 input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                        <i>Cargo</i>
+                    </p>
+                </div>
+                <div class="col-2">
+                    <p class="mb-1 input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                        <i>Fecha</i>
+                    </p>
                 </div>
                 <div class="col-2">
                     <p class="input-space">&amp;nbsp;</p>
-                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
-                    <i>Matrícula</i>
+                    <p class="mb-0 small text-muted" style="border-top: dashed 1px black;">
+                        <i>Firma</i>
                     </p>
-                    <p class="input-space">&amp;nbsp;</p>
+                </div>
+            </div>            
+            <p class="mb-0 mt-2"><strong>Contabilizado por</strong></p>
+            <hr class="m-0 mb-1" color="black" />
+            <div class="row">
+                <div class="col-5">
+                    <p class="mb-1 input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                        <i>Nombre</i>
+                    </p>
                 </div>
                 <div class="col-3">
-                    <p class="input-space">&amp;nbsp;</p>
+                    <p class="mb-1 input-space">&amp;nbsp;</p>
                     <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
-                    <i># Carta de Porte/Casilla de Ferrocarril</i>
+                        <i>Cargo</i>
                     </p>
-                    <p class="input-space">&amp;nbsp;</p>
+                </div>
+                <div class="col-2">
+                    <p class="mb-1 input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                        <i>Fecha</i>
+                    </p>
+                </div>
+                <div class="col-2">
+                    <p class="mb-1 input-space">&amp;nbsp;</p>
+                    <p class="mb-0 small text-muted" style="border-top: dashed 1px black;">
+                        <i>Firma</i>
+                    </p>
+                </div>
+            </div>
+            <p class="mb-0 mt-2"><strong>Transportado por</strong></p>
+            <hr class="m-0 mb-1" color="black" />
+            <div class="row">
+                <div class="col-5">
+                    <p class="mb-1 input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                        <i>Nombre</i>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <p class="mb-1 input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                        <i># de Identidad</i>
+                    </p>
+                </div>
+                <div class="col-3">
+                    <p class="mb-1 input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                        <i>Matrícula</i>
+                    </p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-4">
-                    <p style="font-size: 2rem;">&amp;nbsp;</p>
+                <div class="col-7">
+                    <p class="mb-1 input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                        <i># Carta de Porte/Casilla de Ferrocarril</i>
+                    </p>
+                </div>
+                <div class="col-3">
+                </div>
+                <div class="col-2">
+                    <p class="mb-1 input-space">&amp;nbsp;</p>
                     <p class="mb-0 small text-muted" style="border-top: dashed 1px black;">
-                    <i>Firma</i>
+                        <i>Firma</i>
                     </p>
                 </div>
             </div>
