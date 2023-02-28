@@ -15,10 +15,10 @@
             <p class="m-0"><strong>C&amp;oacute;digo NIT:</strong>&amp;nbsp;<span t-field="o.partner_id.vat"/></p>
             <p class="m-0 mb-4">
                 <span><strong>Cuenta Bancaria:</strong></span>
-                <span t-field="o.partner_id.bank_ids[0].acc_holder_name" />
-                <span t-field="o.partner_id.bank_ids[0].acc_number" />
-                <span>&amp;nbsp;(</span><t t-if="o.partner_id.bank_ids[0].currency_id"><span t-field="o.partner_id.bank_ids[0].currency_id" /></t><t t-else=""><span t-field="res_company.currency_id" /></t><span>)</span>
-                <span>,&amp;nbsp;</span><span t-field="o.partner_id.bank_ids[0].bank_id.name" /><span></span>
+                <span t-field="o.other_partner_bank_id.acc_holder_name" />
+                <span t-field="o.other_partner_bank_id.acc_number" />
+                <span>&amp;nbsp;(</span><t t-if="o.other_partner_bank_id.currency_id"><span t-field="o.other_partner_bank_id.currency_id" /></t><t t-else=""><span t-field="res_company.currency_id" /></t><span>)</span>
+                <span>,&amp;nbsp;</span><span t-field="o.other_partner_bank_id.bank_id.name" /><span></span>
             </p>
         </xpath>
     </template>

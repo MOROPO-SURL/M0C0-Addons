@@ -91,42 +91,60 @@
                     </p>
                 </div>
             </div>
-            <p class="mb-0 mt-2"><strong>Transportado por</strong></p>
-            <hr class="m-0 mb-1" color="black" />
-            <div class="row">
-                <div class="col-5">
-                    <p class="mb-1 input-space">&amp;nbsp;</p>
-                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
-                        <i>Nombre</i>
-                    </p>
+            <div t-if="o.carrier_id">
+                <p class="mb-0 mt-2"><strong>Transportado por</strong></p>
+                <hr class="m-0 mb-1" color="black" />
+                <div class="row">
+                    <div class="col-5">
+                        <p t-if="o.carrier_id" t-field="o.carrier_id.name" class="mb-1 input-space" />
+                        <p t-else="" class="mb-1 input-space">&amp;nbsp;</p>
+                        <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                            <i>Nombre</i>
+                        </p>
+                    </div>
+                    <div class="col-7">
+                        <p t-if="o.carrier_id.parent_id" t-field="o.carrier_id.parent_id" class="mb-1 input-space" />
+                        <p t-else="" class="mb-1 input-space">&amp;nbsp;</p>
+                        <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                            <i>Entidad</i>
+                        </p>
+                    </div>
                 </div>
-                <div class="col-4">
-                    <p class="mb-1 input-space">&amp;nbsp;</p>
-                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
-                        <i># de Identidad</i>
-                    </p>
-                </div>
-                <div class="col-3">
-                    <p class="mb-1 input-space">&amp;nbsp;</p>
-                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
-                        <i>Matrícula</i>
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-7">
-                    <p class="mb-1 input-space">&amp;nbsp;</p>
-                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
-                        <i># Carta de Porte/Casilla de Ferrocarril</i>
-                    </p>
-                </div>
-                <div class="col-3">
-                </div>
-                <div class="col-2">
-                    <p class="mb-1 input-space">&amp;nbsp;</p>
-                    <p class="mb-0 small text-muted" style="border-top: dashed 1px black;">
-                        <i>Firma</i>
-                    </p>
+                <div class="row">
+                    <div class="col-4">
+                        <p t-if="o.carrier_id.vat" t-field="o.carrier_id.vat" class="mb-1 input-space" />
+                        <p t-else="" class="mb-1 input-space">&amp;nbsp;</p>
+                        <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                            <i># de Identidad</i>
+                        </p>
+                    </div>
+                    <div class="col-2">
+                        <p t-if="o.card_number" t-field="o.card_number" class="mb-1 input-space" />
+                        <p t-else="" class="mb-1 input-space">&amp;nbsp;</p>
+                        <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                            <i>Carta de Porte</i>
+                        </p>
+                    </div>
+                    <div class="col-2">
+                        <p t-if="o.vehicle_plate" t-field="o.vehicle_plate" class="mb-1 input-space" />
+                        <p t-else="" class="mb-1 input-space">&amp;nbsp;</p>
+                        <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                            <i>Matrícula</i>
+                        </p>
+                    </div>
+                    <div class="col-2">
+                        <p t-if="o.railroad_locker" t-field="o.railroad_locker" class="mb-1 input-space" />
+                        <p t-else="" class="mb-1 input-space">&amp;nbsp;</p>
+                        <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                            <i>Casilla de Ferrocarril</i>
+                        </p>
+                    </div>
+                    <div class="col-2">
+                        <p class="mb-1 input-space">&amp;nbsp;</p>
+                        <p class="mb-0 small text-muted" style="border-top: dashed 1px black;">
+                            <i>Firma</i>
+                        </p>
+                    </div>
                 </div>
             </div>
         </xpath>
