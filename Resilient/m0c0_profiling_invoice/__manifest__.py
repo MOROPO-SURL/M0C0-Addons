@@ -6,11 +6,12 @@
     'author': 'MOROPO S.U.R.L.',
     'website': 'https://www.moropo.cu',
     'category': 'Localization',
-    'version': '0.8.0',
-    'depends': ['account'],
+    'version': '0.8.42',
+    'depends': ['m0c0_account'],
     'data': [
         'views/account_invoice_globals.xml',
-        'views/account_invoice_signblocks.xml'
+        'views/account_invoice_signblocks.xml',
+        'views/account_invoice_lines.xml'
     ],
     'license': 'LGPL-3',
 }
