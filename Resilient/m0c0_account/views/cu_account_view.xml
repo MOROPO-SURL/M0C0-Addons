@@ -28,13 +28,29 @@
                     <field name="sheet_number"/>
                 </field>
                 <field name="partner_bank_id" position="replace">
-                    <h3>Company</h3>
+                    <h4 class="mb-0 mt-1">Empresa</h4>
                     <field name="partner_bank_id" domain="[('partner_id.ref_company_ids', 'in', (company_id))]" widget="selection" invisible="0"/>
-                    <h3>Partner</h3>
+                    <h4 class="mb-0 mt-1">Cliente</h4>
                     <field name="other_partner_bank_id" domain="[('partner_id', '=', partner_id)]" widget="selection" invisible="0"/>
                 </field>
+                <field name='tax_line_ids' position='before'>
+                    <h4>Impuestos</h4>
+                </field>
+                <field name='tax_line_ids' position='after'>
+                    <h4>Ajustes</h4>
+                    <field name="patch_ids" widget='one2many_list' mode='tree' context="{'invoic3_id': id}">
+                        <tree string="Lokol Lines" editable="bottom">
+                            <control>
+                                <create string="Agregar"/>
+                            </control>
+
+                            <field name="concept" widget="section_and_note_text"/>
+                            <field name="mount" />
+                        </tree>
+                    </field>
+                </field>
                 <xpath expr="//notebook/page[2]" position="after">
-                    <page string="Carrier Data">
+                    <page string="Transportación">
                         <group>
                             <group>
                                 <field name="carrier_id" options="{'no_create': True}"/>
@@ -74,13 +90,13 @@
                     <field name="contract_date"/>
                 </field>
                 <field name="partner_bank_id" position="replace">
-                    <h3>Partner</h3>
+                    <h4 class="mb-0 mt-1">Proveedor</h4>
                     <field name="partner_bank_id" domain="[('partner_id', '=', partner_id)]" widget="selection" invisible="0"/>
-                    <h3>Company</h3>
+                    <h4 class="mb-0 mt-1">Empresa</h4>
                     <field name="other_partner_bank_id" domain="[('partner_id.ref_company_ids', 'in', (company_id))]" widget="selection" invisible="0"/>
                 </field>
                 <xpath expr="//notebook/page[2]" position="after">
-                    <page string="Carrier Data">
+                    <page string="Transportación">
                         <group>
                             <group>
                                 <field name="carrier_id" options="{'no_create': True}"/>

@@ -2,7 +2,7 @@
 
 {
     'name': "M0C0 - Contabilidad para Cuba",
-    'version': '0.3.0',
+    'version': '0.3.25',
     "author": "MOROPO S.U.R.L.",
     'website': 'https://www.moropo.cu',
     "contact": 'contacto@moropo.cu',

@@ -6,7 +6,8 @@ from odoo.exceptions import RedirectWarning, Warning
 from odoo.addons import decimal_precision as dp
 
 
-class AccountInvoicePlus(models.Model):
+class CUAccountInvoice(models.Model):
+    _name = 'account.invoice'
     _inherit = 'account.invoice'
 
     other_partner_bank_id = fields.Many2one('res.partner.bank', string='Bank Account', readonly=True,
@@ -34,6 +35,8 @@ class AccountInvoicePlus(models.Model):
                                index=True,
                                help="Keep empty to use the current date", copy=False,
                                default=fields.Date.today())
+
+    patch_ids = fields.One2many('account.invoice.patch', 'invoic3_id', string='Ajustes', readonly=True, states={'draft': [('readonly', False)]}, copy=True)
 
     @api.onchange('partner_id', 'company_id')
     def _onchange_partner_id(self):
@@ -108,3 +111,13 @@ class AccountInvoicePlus(models.Model):
         if domain:
             res['domain'] = domain
         return res
+
+class CUAccountInvoicePatch(models.Model):
+    _name = "account.invoice.patch"
+    _description = "Ajuste a Factura"
+
+    invoic3_id = fields.Many2one('account.invoice', string='Invoice Reference', ondelete='cascade', index=True)
+    
+    concept = fields.Char(string='Concepto', required=True)
+    
+    mount = fields.Float(string='Monto', required=True)
