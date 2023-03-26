@@ -38,7 +38,7 @@
                 </field>
                 <field name='tax_line_ids' position='after'>
                     <h4>Ajustes</h4>
-                    <field name="patch_ids" widget='one2many_list' mode='tree' context="{'invoic3_id': id}">
+                    <field name="patch_ids" widget='one2many_list' mode='tree' context="{'invoic3_id': id, 'currency_id': currency_id}">
                         <tree string="Lokol Lines" editable="bottom">
                             <control>
                                 <create string="Agregar"/>

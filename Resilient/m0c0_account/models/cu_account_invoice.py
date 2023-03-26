@@ -119,5 +119,7 @@ class CUAccountInvoicePatch(models.Model):
     invoic3_id = fields.Many2one('account.invoice', string='Invoice Reference', ondelete='cascade', index=True)
     
     concept = fields.Char(string='Concepto', required=True)
+
+    currency_id = fields.Many2one('res.currency', string='Currency', related='invoic3_id.currency_id')
     
-    mount = fields.Float(string='Monto', required=True)
+    mount = fields.Monetary(string='Monto', required=True)
