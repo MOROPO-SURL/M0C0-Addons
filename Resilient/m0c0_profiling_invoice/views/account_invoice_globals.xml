@@ -13,6 +13,7 @@
             <p class="mt-1 mb-1" style="font-size: 1.35rem;" t-field="o.partner_id.name"/>
             <p class="m-0"><strong>Dirección:</strong>&amp;nbsp;<span t-field="o.partner_id.street"/><t t-if="o.partner_id.street2">&amp;nbsp;<span t-field="o.partner_id.street2"/></t><span>,&amp;nbsp;</span><span t-field="o.partner_id.state_id.name"/><span>,&amp;nbsp;</span><span t-field="o.partner_id.country_id.name"/></p>
             <p class="m-0"><strong>C&amp;oacute;digo NIT:</strong>&amp;nbsp;<span t-field="o.partner_id.vat"/></p>
+            <t t-if="line.display_type" name="account_invoice_line_accountable">
             <p class="m-0 mb-4">
                 <span><strong>Cuenta Bancaria:</strong></span>
                 <span t-field="o.other_partner_bank_id.acc_holder_name" />
@@ -32,13 +33,15 @@
                     <div class="col-9">
                         <p class="m-0"><strong>Direcci&amp;oacute;n:</strong>&amp;nbsp;<span t-field="res_company.street"/><t t-if="res_company.street2">&amp;nbsp;<span t-field="res_company.street2"/></t><span>,&amp;nbsp;</span><span t-field="res_company.state_id.name"/><span>,&amp;nbsp;</span><span t-field="res_company.country_id.name"/></p>
                         <p class="m-0"><strong>C&amp;oacute;digo NIT:</strong>&amp;nbsp;<span t-field="res_company.vat"/></p>
-                        <p class="m-0">
-                            <span><strong>Cuenta Bancaria:</strong></span>
-                            <span t-field="o.partner_bank_id.acc_holder_name" />
-                            <span t-field="o.partner_bank_id.acc_number" />
-                            <span>&amp;nbsp;(</span><t t-if="o.partner_bank_id.currency_id"><span t-field="o.partner_bank_id.currency_id" /></t><t t-else=""><span t-field="res_company.currency_id" /></t><span>)</span>
-                            <span>,&amp;nbsp;</span><span t-field="o.partner_bank_id.bank_id.name" /><span></span>
-                        </p>
+                        <t t-if="o.partner_bank_id">
+                            <p class="m-0">
+                                <span><strong>Cuenta Bancaria:</strong></span>
+                                <span t-field="o.partner_bank_id.acc_holder_name" />
+                                <span t-field="o.partner_bank_id.acc_number" />
+                                <span>&amp;nbsp;(</span><t t-if="o.partner_bank_id.currency_id"><span t-field="o.partner_bank_id.currency_id" /></t><t t-else=""><span t-field="res_company.currency_id" /></t><span>)</span>
+                                <span>,&amp;nbsp;</span><span t-field="o.partner_bank_id.bank_id.name" /><span></span>
+                            </p>
+                        </t>
                     </div>
                 </div>
                 <div class="zero_min_height mt-1 mb-1">
