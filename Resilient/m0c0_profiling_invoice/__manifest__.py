@@ -6,7 +6,7 @@
     'author': 'MOROPO S.U.R.L.',
     'website': 'https://www.moropo.cu',
     'category': 'Localization',
-    'version': '0.9.8',
+    'version': '0.9.10',
     'depends': ['m0c0_account'],
     'data': [
         'views/account_invoice_globals.xml',
