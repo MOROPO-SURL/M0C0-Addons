@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="budget_signblocks" name="Bloques para Firmantes en los Presupuestos" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[hasclass('page')]" position="after">
+            <style type="text/css" rel="stylesheet">
+                p.input-space {font-size: 1.15rem;overflow:hidden;white-space:nowrap;text-overflow: ellipsis;}
+            </style>
+            <p class="mb-0"><strong>Elaborado por</strong></p>
+            <hr class="m-0 mb-1" color="black" />
+            <div class="row">
+                <div class="col-5">
+                    <p t-if="doc.user_id.name" t-field="doc.user_id.name" class="mb-1 input-space" />
+                    <p t-else="" class="mb-1 input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                        <i>Nombre</i>
+                    </p>
+                </div>
+                <div class="col-3">
+                    <p t-if="doc.user_id.function" t-field="doc.user_id.function" class="mb-1 input-space" />
+                    <p t-else="" class="mb-1 input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                        <i>Cargo</i>
+                    </p>
+                </div>
+                <div class="col-2">
+                    <p t-esc="doc.create_date" t-options='{"widget": "date"}' class="mb-1 input-space" />
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                        <i>Fecha</i>
+                    </p>
+                </div>
+                <div class="col-2">
+                    <p class="mb-1 input-space">&amp;nbsp;</p>
+                    <p class="mb-0 small text-muted" style="border-top: dashed 1px black;">
+                        <i>Firma</i>
+                    </p>
+                </div>
+            </div>
+            <p class="mb-0 mt-2"><strong>Recibido por</strong></p>
+            <hr class="m-0 mb-1" color="black" />
+            <div class="row">
+                <div class="col-5">
+                    <p class="mb-1 input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                        <i>Nombre</i>
+                    </p>
+                </div>
+                <div class="col-3">
+                    <p class="mb-1 input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                        <i>Cargo</i>
+                    </p>
+                </div>
+                <div class="col-2">
+                    <p class="mb-1 input-space">&amp;nbsp;</p>
+                    <p class="m-0 small text-muted" style="border-top: dashed 1px black;">
+                        <i>Fecha</i>
+                    </p>
+                </div>
+                <div class="col-2">
+                    <p class="input-space mb-1">&amp;nbsp;</p>
+                    <p class="mb-0 small text-muted" style="border-top: dashed 1px black;">
+                        <i>Firma</i>
+                    </p>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
