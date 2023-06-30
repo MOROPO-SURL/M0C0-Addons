@@ -6,7 +6,7 @@
     'author': 'MOROPO S.U.R.L.',
     'website': 'https://www.moropo.cu',
     'category': 'Localization',
-    'version': '0.1.1',
+    'version': '0.1.2',
     'depends': ['m0c0_account', 'account_fiscal_year', 'auto_backup'],
     'data': [
         'views/fiscal_year_change_lock_date_backup_remainder.xml'
